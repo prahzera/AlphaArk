@@ -12,8 +12,27 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <!-- Header y Navegación -->
-  <header>
+  <!-- Header Principal (Fijo) -->
+  <header class="header-main">
+    <div class="container">
+      <nav class="navbar">
+        <a href="/" class="logo">
+          <img src="/assets/img/logo_alpha.png" alt="ALPHA ARK Logo">
+        </a>
+        <ul class="nav-tabs">
+          <li><a href="/" class="<%= activeTab === 'inicio' ? 'active' : '' %>">INICIO</a></li>
+          <li><a href="/store" class="<%= activeTab === 'store' ? 'active' : '' %>">TIENDA</a></li>
+          <li><a href="/ips" class="<%= activeTab === 'ips' ? 'active' : '' %>">IPS</a></li>
+          <li><a href="/settings" class="<%= activeTab === 'settings' ? 'active' : '' %>">CONFIGURACIONES</a></li>
+          <li><a href="/leaderboard" class="<%= activeTab === 'leaderboard' ? 'active' : '' %>">CLASIFICACIÓN</a></li>
+          <li><a href="/cave-mods" class="<%= activeTab === 'cave-mods' ? 'active' : '' %>">MODS DE CUEVAS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Header Sticky (Aparece cuando el principal no se ve) -->
+  <header class="header-sticky">
     <div class="container">
       <nav class="navbar">
         <a href="/" class="logo">

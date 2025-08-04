@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCopyButtons();
     initHoverEffects();
     initParallaxEffects();
+    initHeaderScrollEffect();
     initSmoothScrolling();
     
     // ===== ANIMACIONES DE CARGA =====
@@ -210,6 +211,42 @@ function initParallaxEffects() {
     
     // Limpiar al cambiar el tamaño de la ventana
     window.addEventListener('resize', clearParallax);
+}
+
+function initHeaderScrollEffect() {
+    const headerMain = document.querySelector('.header-main');
+    const headerSticky = document.querySelector('.header-sticky');
+    const main = document.querySelector('main');
+    
+    if (!headerMain || !headerSticky) return;
+
+    // Función para actualizar el estado de los headers
+    const updateHeaderState = () => {
+        const scrolled = window.pageYOffset;
+        const headerHeight = headerMain.offsetHeight;
+        
+        // Mostrar header sticky cuando el principal ya no se ve
+        if (scrolled > headerHeight) {
+            headerSticky.classList.add('visible');
+            if (main) {
+                main.style.paddingTop = '80px';
+            }
+        } else {
+            headerSticky.classList.remove('visible');
+            if (main) {
+                main.style.paddingTop = '120px';
+            }
+        }
+    };
+
+    // Ejecutar inmediatamente para establecer el estado inicial
+    updateHeaderState();
+
+    // Escuchar eventos de scroll
+    window.addEventListener('scroll', throttle(updateHeaderState, 16));
+    
+    // Escuchar cambios de tamaño de ventana
+    window.addEventListener('resize', updateHeaderState);
 }
 
 function initSmoothScrolling() {

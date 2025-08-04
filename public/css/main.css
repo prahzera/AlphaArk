@@ -184,8 +184,8 @@ a:hover {
   text-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
 }
 
-/* HEADER Y NAVEGACIÓN MEJORADO */
-header {
+/* HEADER PRINCIPAL (Fijo) */
+.header-main {
   background: linear-gradient(135deg, 
     rgba(0, 0, 0, 0.95) 0%, 
     rgba(33, 37, 41, 0.9) 50%, 
@@ -203,6 +203,42 @@ header {
   z-index: 9999;
   border-bottom: 2px solid var(--steel-color);
   animation: headerGlow 3s ease-in-out infinite alternate;
+  height: 120px;
+  padding: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* HEADER STICKY (Compacto) */
+.header-sticky {
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.98) 0%, 
+    rgba(33, 37, 41, 0.95) 50%, 
+    rgba(0, 0, 0, 0.98) 100%);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  height: 80px;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Header sticky visible */
+.header-sticky.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 @keyframes headerGlow {
@@ -227,6 +263,13 @@ header {
   align-items: center;
   padding: 1rem 0;
   position: relative;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navbar del header sticky (más compacto) */
+.header-sticky .navbar {
+  padding: 0.5rem 0;
 }
 
 .logo {
@@ -258,8 +301,14 @@ header {
 .logo img {
   height: 60px;
   filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.4));
-  transition: all var(--transition-speed) var(--transition-bounce);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* Logo del header sticky (más pequeño) */
+.header-sticky .logo img {
+  height: 45px;
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
 }
 
 @keyframes logoFloat {
@@ -284,6 +333,13 @@ header {
   text-shadow: none;
   position: relative;
   animation: logoTextPulse 2.5s ease-in-out infinite alternate;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Texto del logo del header sticky (más pequeño) */
+.header-sticky .logo-text {
+  font-size: 2rem;
+  letter-spacing: 2px;
 }
 
 @keyframes logoTextPulse {
@@ -302,6 +358,17 @@ header {
   margin: 0;
   padding: 8px;
   background: var(--glass-bg);
+  
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Nav-tabs del header sticky (más compacto) */
+.header-sticky .nav-tabs {
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.nav-tabs {
   border-radius: var(--nav-border-radius);
   box-shadow: var(--glass-shadow);
   backdrop-filter: blur(15px);
@@ -426,9 +493,10 @@ header {
 main {
   min-height: calc(100vh - 200px);
   padding: var(--spacing-xl) 0;
-  padding-top: 120px; /* Padding fijo para compensar el header fijo */
+  padding-top: 120px; /* Padding para el header principal fijo */
   animation: fadeInUp 0.8s ease-out;
   position: relative;
+  transition: padding-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes fadeInUp {
