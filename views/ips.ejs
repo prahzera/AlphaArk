@@ -1,39 +1,39 @@
 <div class="page-header">
-  <h1>Servidores ALPHA ARK</h1>
-  <p>Conecta a nuestros servidores oficiales y disfruta de la mejor experiencia de ARK: Survival Evolved</p>
+  <h1>ALPHA ARK Servers</h1>
+  <p>Connect to our official servers and enjoy the best ARK: Survival Evolved experience</p>
 </div>
 
 <div class="servers-grid" id="serversGrid">
-  <!-- Los servidores se cargarán dinámicamente desde la API -->
+  <!-- Servers will be loaded dynamically from the API -->
   <div class="loading-placeholder">
     <div class="loading-spinner"></div>
-    <p>Cargando servidores...</p>
+    <p>Loading servers...</p>
   </div>
 </div>
 
 <section class="info-section">
-  <h2><i class="fas fa-info-circle"></i> Información Importante</h2>
+  <h2><i class="fas fa-info-circle"></i> Important Information</h2>
   <div class="info-grid">
     <div class="info-card">
-      <h3><i class="fas fa-plug"></i> Cómo Conectar</h3>
-      <p>1. Abre Steam<br>2. Ve a Ver > Servidores<br>3. Pega la IP del servidor<br>4. ¡Conecta y disfruta!</p>
+      <h3><i class="fas fa-plug"></i> How to Connect</h3>
+      <p>1. Open Steam<br>2. Go to View > Servers<br>3. Paste the server IP<br>4. Connect and enjoy!</p>
     </div>
     <div class="info-card">
-      <h3><i class="fas fa-download"></i> Mods Requeridos</h3>
-      <p>Algunos servidores requieren mods específicos. Descárgalos automáticamente al conectarte o desde el Workshop de Steam.</p>
+      <h3><i class="fas fa-download"></i> Required Mods</h3>
+      <p>Some servers require specific mods. Download them automatically when connecting or from the Steam Workshop.</p>
     </div>
     <div class="info-card">
-      <h3><i class="fas fa-gavel"></i> Reglas del Servidor</h3>
-      <p>Respeta a otros jugadores, no uses hacks o trampas, y sigue las reglas de la comunidad para una mejor experiencia.</p>
+      <h3><i class="fas fa-gavel"></i> Server Rules</h3>
+      <p>Respect other players, don't use hacks or cheats, and follow community rules for a better experience.</p>
     </div>
     <div class="info-card">
-      <h3><i class="fas fa-headset"></i> Soporte Técnico</h3>
-      <p>¿Problemas para conectar? Únete a nuestro Discord para recibir ayuda técnica y soporte en tiempo real.</p>
+      <h3><i class="fas fa-headset"></i> Technical Support</h3>
+      <p>Having trouble connecting? Join our Discord for technical help and real-time support.</p>
     </div>
   </div>
 </section>
 
-     <!-- Template para servidores -->
+     <!-- Template for servers -->
      <template id="serverTemplate">
        <div class="server-card">
                  <div class="server-image">
@@ -58,11 +58,11 @@
     
     <div class="server-info">
       <div class="info-item">
-        <span class="info-label">Mapa</span>
+        <span class="info-label">Map</span>
         <span class="info-value map-value"></span>
       </div>
       <div class="info-item">
-        <span class="info-label">Jugadores</span>
+        <span class="info-label">Players</span>
         <span class="info-value players-value"></span>
       </div>
     </div>
@@ -72,11 +72,11 @@
       <div class="server-actions">
         <button class="copy-btn" onclick="copyToClipboard(this)">
           <i class="fas fa-copy"></i>
-          Copiar IP
+          Copy IP
         </button>
         <a href="#" class="connect-btn" target="_blank">
           <i class="fas fa-play"></i>
-          Conectar
+          Connect
         </a>
       </div>
     </div>
@@ -88,7 +88,7 @@
 <script>
 
 
-// Función para cargar servidores desde la API
+// Function to load servers from the API
 async function loadServers() {
     try {
         const response = await fetch('/api/servers');
@@ -97,35 +97,35 @@ async function loadServers() {
         if (data.success) {
             displayServers(data.data);
         } else {
-            throw new Error(data.error || 'Error cargando servidores');
+            throw new Error(data.error || 'Error loading servers');
         }
     } catch (error) {
         console.error('Error loading servers:', error);
-        showError('Error cargando servidores. Intenta recargar la página.');
+        showError('Error loading servers. Try reloading the page.');
     }
 }
 
-     // Función para mostrar servidores en la página
+     // Function to display servers on the page
      function displayServers(servers) {
          const grid = document.getElementById('serversGrid');
          const template = document.getElementById('serverTemplate');
 
-         // Limpiar grid
+         // Clear grid
          grid.innerHTML = '';
 
          if (servers.length === 0) {
-             grid.innerHTML = '<p class="no-servers">No hay servidores disponibles</p>';
+             grid.innerHTML = '<p class="no-servers">No servers available</p>';
              return;
          }
 
          servers.forEach(server => {
              const clone = template.content.cloneNode(true);
 
-             // Llenar datos del servidor
+             // Fill server data
              clone.querySelector('.server-name-text').textContent = server.name;
              clone.querySelector('.server-ip').textContent = `${server.ip}:${server.port}`;
 
-             // Configurar imagen del mapa
+             // Configure map image
              const mapImage = clone.querySelector('.map-image');
              const mapImageName = server.map || server.name;
              const mapName = server.name;
@@ -133,13 +133,13 @@ async function loadServers() {
              mapImage.src = imagePath;
              mapImage.alt = `${mapName} - ${server.name}`;
              
-             // Manejar error de imagen
+             // Handle image error
              mapImage.onerror = function() {
-                 this.src = '/assets/img/servers/default.webp'; // Imagen por defecto
-                 this.alt = 'Mapa por defecto';
+                 this.src = '/assets/img/servers/default.webp'; // Default image
+                 this.alt = 'Default map';
              };
         
-        // Estado del servidor
+        // Server status
         const statusElement = clone.querySelector('.server-status');
         const statusText = clone.querySelector('.status-text');
         const statusIndicator = clone.querySelector('.status-indicator');
@@ -154,34 +154,34 @@ async function loadServers() {
             statusIndicator.className = 'fas fa-circle status-indicator';
         }
         
-        // Información del servidor
+        // Server information
         clone.querySelector('.map-value').textContent = server.map || server.name;
         clone.querySelector('.players-value').textContent = server.status === 'online' ? 
             `${server.players}/${server.maxPlayers}` : '0/0';
         
-        // Configurar versión en el badge
+        // Configure version in badge
         const versionText = clone.querySelector('.version-text');
         versionText.textContent = server.version || 'Unknown';
         
-        // Botones
+        // Buttons
         const copyBtn = clone.querySelector('.copy-btn');
         const connectBtn = clone.querySelector('.connect-btn');
         
         copyBtn.setAttribute('data-ip', `${server.ip}:${server.port}`);
         connectBtn.href = server.steam || `steam://connect/${server.ip}:${server.port}`;
         
-        // Agregar al grid
+        // Add to grid
         grid.appendChild(clone);
     });
 }
 
-// Función para copiar IP al portapapeles
+// Function to copy IP to clipboard
 function copyToClipboard(button) {
     const ip = button.getAttribute('data-ip');
     
     navigator.clipboard.writeText(ip).then(() => {
         const originalText = button.innerHTML;
-        button.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+        button.innerHTML = '<i class="fas fa-check"></i> Copied!';
         button.classList.add('btn-success');
         
         setTimeout(() => {
@@ -190,29 +190,29 @@ function copyToClipboard(button) {
         }, 2000);
     }).catch(err => {
         console.error('Error copying to clipboard:', err);
-        showError('Error copiando IP al portapapeles');
+        showError('Error copying IP to clipboard');
     });
 }
 
-// Función para mostrar errores
+// Function to show errors
 function showError(message) {
     const grid = document.getElementById('serversGrid');
     grid.innerHTML = `
         <div class="error-message">
             <i class="fas fa-exclamation-triangle"></i>
             <p>${message}</p>
-            <button onclick="loadServers()" class="btn btn-primary">Reintentar</button>
+            <button onclick="loadServers()" class="btn btn-primary">Retry</button>
         </div>
     `;
 }
 
-// Función para actualizar servidores automáticamente
+// Function to automatically update servers
 function startAutoRefresh() {
-    // Actualizar cada 30 segundos
+    // Update every 30 seconds
     setInterval(loadServers, 30000);
 }
 
-// Cargar servidores al cargar la página
+// Load servers when page loads
 document.addEventListener('DOMContentLoaded', () => {
     loadServers();
     startAutoRefresh();
