@@ -1,0 +1,15 @@
+/* 
+ * ALPHA ARK - Archivo CSS principal
+ * Este archivo importa todos los estilos necesarios para el sitio
+ */
+
+/* Importar estilos principales */
+@import 'main.css';
+
+/* Importar estilos específicos de cada página */
+@import 'pages/home.css';
+@import 'pages/ips.css';
+@import 'pages/store.css';
+@import 'pages/settings.css';
+@import 'pages/leaderboard.css';
+@import 'pages/cave-mods.css';

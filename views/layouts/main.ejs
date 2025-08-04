@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Fuentes locales -->
+  <link rel="stylesheet" href="/css/fonts.css">
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Header y Navegación -->
+  <header>
+    <div class="container">
+      <nav class="navbar">
+        <a href="/" class="logo">
+          <img src="/assets/img/logo_alpha.png" alt="ALPHA ARK Logo">
+          <span class="logo-text">ALPHA ARK</span>
+        </a>
+        <ul class="nav-tabs">
+          <li><a href="/" class="<%= activeTab === 'inicio' ? 'active' : '' %>">INICIO</a></li>
+          <li><a href="/store" class="<%= activeTab === 'store' ? 'active' : '' %>">TIENDA</a></li>
+          <li><a href="/ips" class="<%= activeTab === 'ips' ? 'active' : '' %>">IPS</a></li>
+          <li><a href="/settings" class="<%= activeTab === 'settings' ? 'active' : '' %>">CONFIGURACIONES</a></li>
+          <li><a href="/leaderboard" class="<%= activeTab === 'leaderboard' ? 'active' : '' %>">CLASIFICACIÓN</a></li>
+          <li><a href="/cave-mods" class="<%= activeTab === 'cave-mods' ? 'active' : '' %>">MODS DE CUEVAS</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main>
+    <div class="container">
+      <%- body %>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/assets/img/logo_alpha.png" alt="ALPHA ARK Logo">
+        </div>
+        <div class="footer-links">
+          <a href="/">Inicio</a>
+          <a href="/store">Tienda</a>
+          <a href="/ips">IPs</a>
+          <a href="/settings">Configuraciones</a>
+          <a href="/leaderboard">Clasificación</a>
+          <a href="/cave-mods">Mods de Cuevas</a>
+        </div>
+        <p class="footer-text">&copy; <%= new Date().getFullYear() %> ALPHA ARK. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/js/main.js"></script>
+</body>
+</html>

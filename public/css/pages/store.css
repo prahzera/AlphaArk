@@ -1,0 +1,318 @@
+/* 
+ * ALPHA ARK - Estilos de la página de tienda
+ */
+
+.store-filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  background-color: var(--dark-bg-alpha-30);
+  border: var(--border-light);
+  color: var(--light-text);
+  padding: 0.5rem 1rem;
+  border-radius: var(--btn-border-radius);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  font-family: var(--font-family-condensed);
+  font-weight: var(--font-weight-medium);
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.store-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.store-item {
+  background-color: var(--card-bg);
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  transition: all var(--transition-speed) ease;
+  border: var(--border-light);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.store-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.7) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-speed) ease;
+  pointer-events: none;
+}
+
+.store-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.store-item:hover::after {
+  opacity: 1;
+}
+
+.item-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--btn-border-radius);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  z-index: 1;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-sm);
+}
+
+.item-badge.popular {
+  background-color: var(--primary-color);
+}
+
+.item-badge.new {
+  background-color: var(--accent-color);
+}
+
+.item-badge.sale {
+  background-color: var(--success-color);
+}
+
+.item-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.item-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform var(--transition-speed) ease;
+}
+
+.store-item:hover .item-image {
+  transform: scale(1.05);
+}
+
+.item-details {
+  padding: var(--spacing-sm);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.item-title {
+  font-size: var(--font-size-md);
+  margin-bottom: var(--spacing-xs);
+  color: var(--primary-color);
+  font-family: var(--font-family-condensed);
+  font-weight: var(--font-weight-bold);
+  position: relative;
+  padding-bottom: var(--spacing-xs);
+}
+
+.item-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width var(--transition-speed) ease;
+}
+
+.store-item:hover .item-title::after {
+  width: 100%;
+}
+
+.item-description {
+  margin-bottom: var(--spacing-sm);
+  flex-grow: 1;
+}
+
+.item-price-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.item-price {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: var(--muted-text);
+  font-size: var(--font-size-xs);
+  margin-right: var(--spacing-xs);
+}
+
+/* VIP Ranks Section */
+.vip-comparison {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-md);
+}
+
+.vip-comparison th,
+.vip-comparison td {
+  padding: var(--spacing-sm);
+  text-align: center;
+  border: var(--border-light);
+}
+
+.vip-comparison th {
+  background-color: var(--primary-color-alpha-20);
+  color: var(--primary-color);
+  font-family: var(--font-family-condensed);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+.vip-comparison tr:nth-child(even) {
+  background-color: var(--dark-bg-alpha-30);
+}
+
+.vip-comparison tr:hover {
+  background-color: var(--dark-bg-alpha-20);
+}
+
+.vip-comparison .feature-name {
+  text-align: left;
+  font-weight: var(--font-weight-medium);
+}
+
+.vip-comparison .check {
+  color: var(--success-color);
+}
+
+.vip-comparison .times {
+  color: var(--danger-color);
+}
+
+.vip-comparison .vip-price {
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+}
+
+.vip-comparison .vip-title {
+  color: var(--primary-color);
+  font-family: var(--font-family-condensed);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+}
+
+/* Payment Methods */
+.payment-methods {
+  margin-top: var(--spacing-lg);
+  text-align: center;
+}
+
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.payment-icon {
+  font-size: 2.5rem;
+  color: var(--light-text);
+  transition: all var(--transition-speed) ease;
+}
+
+.payment-icon:hover {
+  color: var(--primary-color);
+  transform: translateY(-5px);
+}
+
+/* Cart Section */
+.cart-summary {
+  background-color: var(--card-bg);
+  border-radius: var(--card-border-radius);
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  border: var(--border-light);
+}
+
+.cart-title {
+  font-family: var(--font-family-condensed);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: var(--border-light);
+}
+
+.cart-items {
+  margin-bottom: var(--spacing-md);
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-xs) 0;
+  border-bottom: var(--border-light);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 2px solid var(--primary-color);
+}
+
+.checkout-btn {
+  width: 100%;
+  margin-top: var(--spacing-sm);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .store-filter {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .vip-comparison {
+    font-size: var(--font-size-xs);
+  }
+  
+  .vip-comparison th,
+  .vip-comparison td {
+    padding: var(--spacing-xs);
+  }
+}

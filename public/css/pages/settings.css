@@ -1,0 +1,291 @@
+/* 
+ * ALPHA ARK - Estilos de la página de configuraciones
+ */
+
+.settings-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.settings-title {
+  font-family: var(--font-family-condensed);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+  border-bottom: var(--border-light);
+  padding-bottom: var(--spacing-xs);
+  position: relative;
+}
+
+.settings-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.setting-item {
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--dark-bg-alpha-20);
+  border-radius: var(--btn-border-radius);
+  transition: all var(--transition-speed) ease;
+  border: var(--border-light);
+}
+
+.setting-item:hover {
+  background-color: var(--dark-bg-alpha-30);
+  transform: translateX(5px);
+}
+
+.setting-name {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-xs);
+  color: var(--primary-color);
+}
+
+.setting-value {
+  font-family: monospace;
+  font-weight: var(--font-weight-medium);
+  background-color: var(--dark-bg-alpha-30);
+  padding: var(--spacing-xs);
+  border-radius: var(--btn-border-radius);
+  overflow-x: auto;
+  position: relative;
+}
+
+.setting-value::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--primary-color);
+}
+
+/* Requisitos del sistema */
+.requirements-list {
+  list-style: none;
+  padding: 0;
+}
+
+.requirements-list li {
+  padding: var(--spacing-xs) 0;
+  display: flex;
+  align-items: center;
+}
+
+.requirements-list li:not(:last-child) {
+  border-bottom: var(--border-light);
+}
+
+.requirements-list strong {
+  min-width: 180px;
+  color: var(--primary-color);
+}
+
+/* Mods requeridos */
+.mod-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.mod-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--spacing-xs);
+}
+
+/* Tasas del servidor */
+.rates-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-sm);
+}
+
+.rates-table th,
+.rates-table td {
+  padding: var(--spacing-sm);
+  text-align: left;
+  border: var(--border-light);
+}
+
+.rates-table th {
+  background-color: var(--primary-color-alpha-20);
+  color: var(--primary-color);
+  font-family: var(--font-family-condensed);
+  font-weight: var(--font-weight-bold);
+}
+
+.rates-table tr:nth-child(even) {
+  background-color: var(--dark-bg-alpha-30);
+}
+
+.rates-table tr:hover {
+  background-color: var(--dark-bg-alpha-20);
+}
+
+/* Reglas del servidor */
+.rules-list {
+  list-style: none;
+  counter-reset: rule-counter;
+  padding: 0;
+}
+
+.rules-list li {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: var(--spacing-sm);
+  counter-increment: rule-counter;
+}
+
+.rules-list li::before {
+  content: counter(rule-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Guía de instalación */
+.installation-steps {
+  counter-reset: step-counter;
+  list-style: none;
+  padding: 0;
+}
+
+.installation-steps li {
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: var(--spacing-md);
+  counter-increment: step-counter;
+}
+
+.installation-steps li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 35px;
+  height: 35px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  box-shadow: var(--shadow-sm);
+}
+
+.installation-steps li::after {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 35px;
+  width: 2px;
+  height: calc(100% - 35px + var(--spacing-md));
+  background-color: var(--primary-color-alpha-20);
+}
+
+.installation-steps li:last-child::after {
+  display: none;
+}
+
+/* Acordeón para reglas */
+.accordion {
+  margin-bottom: var(--spacing-sm);
+}
+
+.accordion-header {
+  background-color: var(--dark-bg-alpha-30);
+  padding: var(--spacing-sm);
+  cursor: pointer;
+  border-radius: var(--btn-border-radius);
+  font-family: var(--font-family-condensed);
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all var(--transition-speed) ease;
+  border: var(--border-light);
+}
+
+.accordion-header:hover {
+  background-color: var(--primary-color-alpha-20);
+}
+
+.accordion-header.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.accordion-icon {
+  transition: transform var(--transition-speed) ease;
+}
+
+.accordion-header.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  background-color: var(--dark-bg-alpha-20);
+  padding: var(--spacing-sm);
+  border: var(--border-light);
+  border-top: none;
+  border-bottom-left-radius: var(--btn-border-radius);
+  border-bottom-right-radius: var(--btn-border-radius);
+  display: none;
+}
+
+.accordion-header.active + .accordion-content {
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .requirements-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .requirements-list strong {
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .rates-table {
+    font-size: var(--font-size-xs);
+  }
+  
+  .rates-table th,
+  .rates-table td {
+    padding: var(--spacing-xs);
+  }
+}

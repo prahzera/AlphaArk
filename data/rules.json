@@ -1,0 +1,244 @@
+{
+    "rules": {
+        "general": [
+            {
+                "id": "1.1",
+                "description": "We do not tolerate Racism or Sexual Content in any kind of way."
+            },
+            {
+                "id": "1.2",
+                "description": "You're not allowed to self-advertise or advertise without our consent."
+            },
+            {
+                "id": "1.3",
+                "description": "Promoting self-harm will lead to an immediate ban."
+            },
+            {
+                "id": "1.4",
+                "description": "Inappropriate names are not allowed."
+            },
+            {
+                "id": "1.5",
+                "description": "An Admins choice is to be discussed with proper wording, throwing insults around will lead to a timeout."
+            },
+            {
+                "id": "1.6",
+                "description": "INSIDING is strictly prohibited."
+            },
+            {
+                "id": "1.7",
+                "description": "Hacking, cheating, or exploiting (including aimbot, meshing, duping...) is prohibited."
+            },
+            {
+                "id": "1.8",
+                "description": "Breaking the WC Code of Conduct in any way is prohibited."
+            },
+            {
+                "id": "1.9",
+                "description": "Administrators are not obligated to return items or dinos lost due to any situation or game error."
+            },
+            {
+                "id": "2.1",
+                "description": "Dino stacking is strictly prohibited."
+            },
+            {
+                "id": "2.2",
+                "description": "Scamming during trades is not allowed. Please record trades."
+            },
+            {
+                "id": "2.3",
+                "description": "No dinos are allowed inside the lava golem, except for Velonasaurs."
+            },
+            {
+                "id": "2.4",
+                "description": "Account sharing is prohibited."
+            },
+            {
+                "id": "2.5",
+                "description": "It is allowed to ROTATE TRIBE SLOTS (Maximum 6 different people in the Tribe)."
+            }
+        ],
+        "raiding": [
+            {
+                "id": "1.1",
+                "description": "Teaming with another tribe is not allowed: joining a raid or defending another tribe from an attack is prohibited."
+            },
+            {
+                "id": "1.2",
+                "description": "Counter raids are allowed. Attackers are REQUIRED to continue the raid."
+            },
+            {
+                "id": "1.3",
+                "description": "You must place a FOB for it to count as a counter raid. (20 turrets)."
+            },
+            {
+                "id": "1.4",
+                "description": "You can only keep a player imprisoned for 1 hours. However, during a raid, you may keep them until the raid is over."
+            },
+            {
+                "id": "1.5",
+                "description": "Mesh Byte (including with a Mek) is prohibited, Forest titan right click ability doesnt count as mesh biting."
+            },
+            {
+                "id": "1.6",
+                "description": "Gaining tribe score from another tribe for free (e.g., disabling generators, accessing their base with a TP, giving them structures or dinos to destroy) is strictly prohibited and results in a permanent ban."
+            },
+            {
+                "id": "1.7",
+                "description": "During a FOB, it is strictly prohibited to decomp your structures whether at the start or the end of the FOB. You can transfer loot between bases."
+            },
+            {
+                "id": "1.8",
+                "description": "Using the Tek Forcefield's range to repeatedly block a player or a dino is prohibited.(max 3x a row/time)."
+            },
+            {
+                "id": "1.9",
+                "description": "Swaping Caged players is not allowed."
+            },
+            {
+                "id": "2.1",
+                "description": "Mass soaking is not allowed (6 not ridden dinos max)."
+            },
+            {
+                "id": "2.2",
+                "description": "Dinosaurs are not allowed in AGRO inside a CAVE (2 unmounted dinosaurs)."
+            },
+            {
+                "id": "2.3",
+                "description": "Tunneling not allowed."
+            },
+            {
+                "id": "2.4",
+                "description": "Dinosaurs with platform mounts must be able to be shot from at least one side (Except Astrocetus)."
+            },
+            {
+                "id": "2.5",
+                "description": "Merging tribes is not allowed while one of them is being attacked."
+            },
+            {
+                "id": "2.6",
+                "description": "2 aggressive tamed dinosaurs blocking a cave entrance and one Soaker-class dinosaur are allowed."
+            },
+            {
+                "id": "2.7",
+                "description": "Using the \"Reconnect\" command when selected is not allowed."
+            },
+            {
+                "id": "2.8",
+                "description": "Killing underwater dinos using vacuum glitches is prohibited."
+            }
+        ],
+        "building": [
+            {
+                "id": "1.1",
+                "description": "Building structures in the mesh (gateways, foundations, etc.) is prohibited; they must be approximately 20% visible. If you have a base in the mesh, it will be dev-wiped without prior notice."
+            },
+            {
+                "id": "1.2",
+                "description": "Building on spawns, obelisks, the dragon trench, the underwater cave with drops on Crystal Isles, and the lava golem is not allowed."
+            },
+            {
+                "id": "1.3",
+                "description": "Open-world turrets are only allowed while farming, at drops, veins, or taming. (8 max)."
+            },
+            {
+                "id": "1.4",
+                "description": "Floating structures are prohibited (except turrets in the middle of hatchframes). Except for crop plots those are allowed to do fortnite with, They must not be floating, if you remove the below one they most go down."
+            },
+            {
+                "id": "1.5",
+                "description": "Abusing structure stacking 20+ (e.g., placing vaults inside vaults) is prohibited. (Gen 8 Vaults Turret cap 15 vaults)."
+            },
+            {
+                "id": "1.6",
+                "description": "Spam is only allowed within a range of 90 foundations from your tower. Excessive spam will be removed without prior notice."
+            },
+            {
+                "id": "1.7",
+                "description": "2 different tribes cannot build in the same cave."
+            },
+            {
+                "id": "1.8",
+                "description": "Only one tower is allowed per snap-point."
+            },
+            {
+                "id": "1.9",
+                "description": "Building in rat-holes is allowed if you can enter on foot or crouching without tricks."
+            },
+            {
+                "id": "2.1",
+                "description": "It is not allowed to place BEHEMOTHS inside caves."
+            },
+            {
+                "id": "2.2",
+                "description": "It is not allowed to place SNAP on the MAP LIMITS (Walls and Ceiling) (Except Gen1 Asteroid)."
+            },
+            {
+                "id": "2.3",
+                "description": "Abusing coli spam is not allowed."
+            }
+        ],
+        "pvp": [
+            {
+                "id": "1.1",
+                "description": "Placing Structures on top player is not allowed."
+            },
+            {
+                "id": "2.2",
+                "description": "Blocking lava Golem etc. for longer than 30min is not allowed."
+            },
+            {
+                "id": "3.3",
+                "description": "It is prohibited to place TURRETS on the OSDS / VEINS."
+            }
+        ],
+        "punishment_system": [
+            {
+                "offense": "1st time Warning",
+                "punishment": "nothing"
+            },
+            {
+                "offense": "2nd time Warning",
+                "punishment": "1H ban to 6H ban (depends on what rule)"
+            },
+            {
+                "offense": "3rd time Warning",
+                "punishment": "season ban"
+            },
+            {
+                "offense": "Swap cage members 1st time",
+                "punishment": "Warning"
+            },
+            {
+                "offense": "Swap cage members 2nd time",
+                "punishment": "Season ban"
+            },
+            {
+                "note": "If you try to avoid the punishments by being \"smart\" we will notice it and make no exceptions. The Punishments do vary depending on type."
+            }
+        ],
+        "new_wipe_rules": [
+            {
+                "description": "No turret cap your own base with raft"
+            },
+            {
+                "description": "No Ocean platform inside caves"
+            },
+            {
+                "description": "No decomp your own fortnite fob"
+            },
+            {
+                "description": "No soaking dinos allowed on entrance"
+            },
+            {
+                "description": "No kick allowed if u are picked by (noglin, desmo,grapling...)"
+            },
+            {
+                "description": "Admin team WONT add anyone to tribe because of offline tribemembers"
+            },
+            {
+                "description": "Vault spam is not allowed"
+            }
+        ]
+    }
+}
