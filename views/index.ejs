@@ -1,66 +1,252 @@
-<section class="hero animate-fade-in">
-  <h1>Bienvenido a ALPHA ARK</h1>
-  <p>El mejor servidor de ARK: Survival Evolved. Únete a nuestra comunidad y vive la experiencia definitiva de supervivencia.</p>
-  <div>
-    <a href="/ips" class="btn">Conectarse ahora</a>
-    <a href="/store" class="btn btn-secondary">Visitar tienda</a>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-background">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1 class="hero-title">
+        <span class="hero-title-main">BIENVENIDO A</span>
+        <span class="hero-title-brand">ALPHA ARK</span>
+      </h1>
+      <p class="hero-description">Descubre la mejor experiencia de ARK: Survival Evolved en nuestros servidores optimizados. Conecta fácilmente y disfruta de mods exclusivos, eventos especiales y una comunidad activa.</p>
+      <div class="hero-buttons">
+        <a href="/ips" class="btn btn-primary btn-hero">
+          <i class="fas fa-server"></i>
+          <span>Ver Servidores</span>
+        </a>
+        <a href="/store" class="btn btn-secondary btn-hero">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Tienda</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number" id="heroActivePlayers">0</span>
+          <span class="hero-stat-label">Jugadores Online</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number" id="heroTotalServers">0</span>
+          <span class="hero-stat-label">Servidores Activos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator">
+    <div class="scroll-arrow"></div>
   </div>
 </section>
 
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <span class="stat-number" id="activePlayers">0</span>
+      <span class="stat-label">Jugadores Activos</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number" id="totalServers">0</span>
+      <span class="stat-label">Servidores Online</span>
+    </div>
+
+    <div class="stat-item">
+      <span class="stat-number" id="totalMods">50+</span>
+      <span class="stat-label">Mods Exclusivos</span>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
 <section class="features">
-  <div class="feature-card animate-fade-in">
-    <div class="feature-icon">
-      <i class="fas fa-bolt"></i>
-    </div>
-    <h3 class="feature-title">Servidores de Alto Rendimiento</h3>
-    <p>Disfruta de una experiencia de juego fluida con nuestros servidores optimizados y de alta capacidad.</p>
+  <div class="feature-card">
+    <i class="fas fa-rocket feature-icon"></i>
+    <h3>Rendimiento Optimizado</h3>
+    <p>Nuestros servidores están optimizados para ofrecer la mejor experiencia de juego con latencia mínima y estabilidad máxima.</p>
+    <a href="/ips" class="btn btn-sm">Ver Servidores</a>
   </div>
   
-  <div class="feature-card animate-fade-in">
-    <div class="feature-icon">
-      <i class="fas fa-users"></i>
-    </div>
-    <h3 class="feature-title">Comunidad Activa</h3>
-    <p>Únete a una comunidad amigable y activa de jugadores apasionados por ARK.</p>
+  <div class="feature-card">
+    <i class="fas fa-puzzle-piece feature-icon"></i>
+    <h3>Mods Exclusivos</h3>
+    <p>Disfruta de mods únicos y contenido exclusivo que no encontrarás en ningún otro servidor de ARK.</p>
+    <a href="/cave-mods" class="btn btn-sm">Ver Mods</a>
   </div>
   
-  <div class="feature-card animate-fade-in">
-    <div class="feature-icon">
-      <i class="fas fa-cogs"></i>
-    </div>
-    <h3 class="feature-title">Mods Personalizados</h3>
-    <p>Experimenta ARK como nunca antes con nuestros mods exclusivos y configuraciones únicas.</p>
+  <div class="feature-card">
+    <i class="fas fa-users feature-icon"></i>
+    <h3>Comunidad Activa</h3>
+    <p>Únete a una comunidad vibrante de jugadores apasionados. Eventos, torneos y actividades constantes.</p>
+    <a href="/leaderboard" class="btn btn-sm">Ver Ranking</a>
+  </div>
+  
+  <div class="feature-card">
+    <i class="fas fa-shield-alt feature-icon"></i>
+    <h3>Anti-Cheat Avanzado</h3>
+    <p>Juega con tranquilidad sabiendo que nuestros sistemas protegen la integridad del juego.</p>
+    <a href="/settings" class="btn btn-sm">Más Info</a>
+  </div>
+  
+  <div class="feature-card">
+    <i class="fas fa-calendar-alt feature-icon"></i>
+    <h3>Eventos Especiales</h3>
+    <p>Participa en eventos únicos, torneos y actividades especiales con recompensas exclusivas.</p>
+    <a href="/store" class="btn btn-sm">Ver Eventos</a>
+  </div>
+  
+  <div class="feature-card">
+    <i class="fas fa-headset feature-icon"></i>
+    <h3>Soporte 24/7</h3>
+    <p>Nuestro equipo de soporte está disponible las 24 horas para ayudarte con cualquier problema.</p>
+    <a href="/settings" class="btn btn-sm">Contactar</a>
   </div>
 </section>
 
-<section class="card animate-fade-in">
-  <div class="card-header">
-    Eventos Próximos
+<!-- Call to Action Section -->
+<section class="cta-section">
+  <h2>¿Listo para la Aventura?</h2>
+  <p>Únete a miles de jugadores que ya están disfrutando de la mejor experiencia de ARK: Survival Evolved en nuestros servidores.</p>
+  <div class="cta-buttons">
+    <a href="/ips" class="btn btn-primary">
+      <i class="fas fa-play"></i>
+      Conectar Ahora
+    </a>
+    <a href="/store" class="btn btn-accent">
+      <i class="fas fa-gift"></i>
+      Ver Ofertas
+    </a>
   </div>
-  <div class="card-body">
-    <div class="event">
-      <h4>Caza del Alfa</h4>
-      <p>Este fin de semana, participa en la gran caza de criaturas alfa por todo el mapa. Grandes recompensas para los mejores cazadores.</p>
-      <p><strong>Fecha:</strong> Sábado, 20:00 hrs</p>
+</section>
+
+<!-- News Section -->
+<section class="news-section">
+  <h2>Últimas Noticias</h2>
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-image"></div>
+      <div class="news-content">
+        <div class="news-date">15 Diciembre 2024</div>
+        <h3 class="news-title">Nuevo Servidor Fjordur</h3>
+        <p class="news-excerpt">Hemos agregado un nuevo servidor Fjordur con mods exclusivos y configuración optimizada para la mejor experiencia de juego.</p>
+        <a href="#" class="btn btn-sm">Leer Más</a>
+      </div>
     </div>
-    <hr>
-    <div class="event">
-      <h4>Torneo PvP</h4>
-      <p>Demuestra tus habilidades en nuestro torneo mensual de PvP. ¡Inscripciones abiertas!</p>
-      <p><strong>Fecha:</strong> Próximo domingo, 18:00 hrs</p>
+    
+    <div class="news-card">
+      <div class="news-image"></div>
+      <div class="news-content">
+        <div class="news-date">10 Diciembre 2024</div>
+        <h3 class="news-title">Evento Navideño Especial</h3>
+        <p class="news-excerpt">¡Celebra la Navidad con nuestro evento especial! Recompensas únicas, criaturas festivas y mucho más.</p>
+        <a href="#" class="btn btn-sm">Leer Más</a>
+      </div>
+    </div>
+    
+    <div class="news-card">
+      <div class="news-image"></div>
+      <div class="news-content">
+        <div class="news-date">5 Diciembre 2024</div>
+        <h3 class="news-title">Actualización de Mods</h3>
+        <p class="news-excerpt">Hemos actualizado nuestros mods exclusivos con nuevas criaturas, estructuras y contenido emocionante.</p>
+        <a href="#" class="btn btn-sm">Leer Más</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="card animate-fade-in">
-  <div class="card-header">
-    Últimas Actualizaciones
-  </div>
-  <div class="card-body">
-    <ul>
-      <li><strong>Nuevo mapa:</strong> Se ha añadido el mapa Fjordur a nuestros servidores.</li>
-      <li><strong>Balance de criaturas:</strong> Se han ajustado los stats de varias criaturas para mejorar la experiencia de juego.</li>
-      <li><strong>Nuevos kits:</strong> Disponibles nuevos kits para miembros premium en la tienda.</li>
-    </ul>
+<!-- Quick Links Section -->
+<section class="quick-links">
+  <div class="card glass-effect">
+    <div class="card-header">
+      <h3><i class="fas fa-link"></i> Enlaces Rápidos</h3>
+    </div>
+    <div class="card-body">
+      <div class="d-flex flex-wrap gap-2">
+        <a href="/ips" class="btn btn-sm">Servidores</a>
+        <a href="/store" class="btn btn-sm">Tienda</a>
+        <a href="/leaderboard" class="btn btn-sm">Ranking</a>
+        <a href="/cave-mods" class="btn btn-sm">Mods</a>
+        <a href="/settings" class="btn btn-sm">Configuración</a>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+// Función para cargar estadísticas de servidores
+async function loadServerStats() {
+    try {
+        const response = await fetch('/api/servers/stats');
+        const data = await response.json();
+        
+        if (data.success) {
+            updateStats(data.data);
+        }
+    } catch (error) {
+        console.error('Error loading server stats:', error);
+    }
+}
+
+// Función para actualizar las estadísticas en la página
+function updateStats(stats) {
+    // Actualizar jugadores activos
+    const activePlayersElement = document.getElementById('activePlayers');
+    if (activePlayersElement) {
+        animateNumber(activePlayersElement, 0, stats.totalPlayers, 1000);
+    }
+    
+    // Actualizar servidores online
+    const totalServersElement = document.getElementById('totalServers');
+    if (totalServersElement) {
+        animateNumber(totalServersElement, 0, stats.onlineServers, 1000);
+    }
+    
+
+    
+    // Actualizar estadísticas del hero
+    const heroActivePlayersElement = document.getElementById('heroActivePlayers');
+    if (heroActivePlayersElement) {
+        animateNumber(heroActivePlayersElement, 0, stats.totalPlayers, 1000);
+    }
+    
+    const heroTotalServersElement = document.getElementById('heroTotalServers');
+    if (heroTotalServersElement) {
+        animateNumber(heroTotalServersElement, 0, stats.onlineServers, 1000);
+    }
+}
+
+// Función para animar números
+function animateNumber(element, start, end, duration) {
+    const startTime = performance.now();
+    const startValue = start;
+    const endValue = end;
+    
+    function updateNumber(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        const currentValue = Math.floor(startValue + (endValue - startValue) * progress);
+        element.textContent = currentValue;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateNumber);
+        }
+    }
+    
+    requestAnimationFrame(updateNumber);
+}
+
+// Función para actualizar estadísticas automáticamente
+function startStatsAutoRefresh() {
+    // Actualizar cada 30 segundos
+    setInterval(loadServerStats, 30000);
+}
+
+// Cargar estadísticas al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    loadServerStats();
+    startStatsAutoRefresh();
+});
+</script>

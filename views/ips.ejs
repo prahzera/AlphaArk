@@ -1,151 +1,289 @@
-<h1 class="page-title animate-fade-in">IPs de Servidores</h1>
+<div class="page-header">
+  <h1>Servidores ALPHA ARK</h1>
+  <p>Conecta a nuestros servidores oficiales y disfruta de la mejor experiencia de ARK: Survival Evolved</p>
+</div>
 
-<div class="card animate-fade-in">
-  <div class="card-header">
-    Cómo Conectarse
-  </div>
-  <div class="card-body">
-    <p>Para conectarte a nuestros servidores, sigue estos pasos:</p>
-    <ol>
-      <li>Abre ARK: Survival Evolved</li>
-      <li>Selecciona "Unirse a un servidor"</li>
-      <li>Haz clic en "Añadir a favoritos" o "Servidores no oficiales"</li>
-      <li>Introduce la dirección IP del servidor al que deseas conectarte</li>
-      <li>¡Disfruta de la experiencia ALPHA ARK!</li>
-    </ol>
+<div class="servers-grid" id="serversGrid">
+  <!-- Los servidores se cargarán dinámicamente desde la API -->
+  <div class="loading-placeholder">
+    <div class="loading-spinner"></div>
+    <p>Cargando servidores...</p>
   </div>
 </div>
 
-<div class="card animate-fade-in">
-  <div class="card-header">
-    Servidores PvP
-  </div>
-  <div class="card-body">
-    <div class="server-list">
-      <div class="server-card">
-        <div class="server-info">
-          <span class="server-name">ALPHA ARK - The Island PvP</span>
-          <div>
-            <span class="server-ip">192.168.1.100:27015</span>
-            <button class="copy-btn"><i class="fas fa-copy"></i> Copiar</button>
-          </div>
-        </div>
-        <p>Mapa original de ARK con configuración PvP balanceada. Tasas de recolección x3, domesticación x5.</p>
-        <div><span class="badge bg-success">Online</span> <span>Jugadores: 32/70</span></div>
-      </div>
-      
-      <div class="server-card">
-        <div class="server-info">
-          <span class="server-name">ALPHA ARK - Ragnarok PvP</span>
-          <div>
-            <span class="server-ip">192.168.1.101:27015</span>
-            <button class="copy-btn"><i class="fas fa-copy"></i> Copiar</button>
-          </div>
-        </div>
-        <p>El extenso mapa de Ragnarok con zonas PvP y eventos especiales. Tasas de recolección x3, domesticación x5.</p>
-        <div><span class="badge bg-success">Online</span> <span>Jugadores: 45/70</span></div>
-      </div>
-      
-      <div class="server-card">
-        <div class="server-info">
-          <span class="server-name">ALPHA ARK - Aberration PvP</span>
-          <div>
-            <span class="server-ip">192.168.1.102:27015</span>
-            <button class="copy-btn"><i class="fas fa-copy"></i> Copiar</button>
-          </div>
-        </div>
-        <p>Sobrevive en el hostil entorno subterráneo de Aberration. Tasas de recolección x3, domesticación x5.</p>
-        <div><span class="badge bg-success">Online</span> <span>Jugadores: 28/70</span></div>
-      </div>
+<section class="info-section">
+  <h2><i class="fas fa-info-circle"></i> Información Importante</h2>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3><i class="fas fa-plug"></i> Cómo Conectar</h3>
+      <p>1. Abre Steam<br>2. Ve a Ver > Servidores<br>3. Pega la IP del servidor<br>4. ¡Conecta y disfruta!</p>
+    </div>
+    <div class="info-card">
+      <h3><i class="fas fa-download"></i> Mods Requeridos</h3>
+      <p>Algunos servidores requieren mods específicos. Descárgalos automáticamente al conectarte o desde el Workshop de Steam.</p>
+    </div>
+    <div class="info-card">
+      <h3><i class="fas fa-gavel"></i> Reglas del Servidor</h3>
+      <p>Respeta a otros jugadores, no uses hacks o trampas, y sigue las reglas de la comunidad para una mejor experiencia.</p>
+    </div>
+    <div class="info-card">
+      <h3><i class="fas fa-headset"></i> Soporte Técnico</h3>
+      <p>¿Problemas para conectar? Únete a nuestro Discord para recibir ayuda técnica y soporte en tiempo real.</p>
     </div>
   </div>
-</div>
+</section>
 
-<div class="card animate-fade-in">
-  <div class="card-header">
-    Servidores PvE
-  </div>
-  <div class="card-body">
-    <div class="server-list">
-      <div class="server-card">
-        <div class="server-info">
-          <span class="server-name">ALPHA ARK - The Center PvE</span>
-          <div>
-            <span class="server-ip">192.168.1.103:27015</span>
-            <button class="copy-btn"><i class="fas fa-copy"></i> Copiar</button>
+     <!-- Template para servidores -->
+     <template id="serverTemplate">
+       <div class="server-card">
+                 <div class="server-image">
+          <img src="" alt="" class="map-image">
+          <div class="server-overlay">
+            <div class="server-status">
+              <i class="fas fa-circle status-indicator"></i>
+              <span class="status-text"></span>
+            </div>
+          </div>
+          <div class="version-badge">
+            <span class="version-text"></span>
           </div>
         </div>
-        <p>Explora el hermoso mapa de The Center sin preocuparte por el PvP. Tasas de recolección x5, domesticación x8.</p>
-        <div><span class="badge bg-success">Online</span> <span>Jugadores: 40/70</span></div>
+         
+         <div class="server-header">
+           <div class="server-name">
+             <i class="fas fa-server server-icon"></i>
+             <span class="server-name-text"></span>
+           </div>
+         </div>
+    
+    <div class="server-info">
+      <div class="info-item">
+        <span class="info-label">Mapa</span>
+        <span class="info-value map-value"></span>
       </div>
-      
-      <div class="server-card">
-        <div class="server-info">
-          <span class="server-name">ALPHA ARK - Valguero PvE</span>
-          <div>
-            <span class="server-ip">192.168.1.104:27015</span>
-            <button class="copy-btn"><i class="fas fa-copy"></i> Copiar</button>
-          </div>
-        </div>
-        <p>Disfruta del variado mapa de Valguero con un enfoque cooperativo. Tasas de recolección x5, domesticación x8.</p>
-        <div><span class="badge bg-success">Online</span> <span>Jugadores: 38/70</span></div>
-      </div>
-      
-      <div class="server-card">
-        <div class="server-info">
-          <span class="server-name">ALPHA ARK - Genesis PvE</span>
-          <div>
-            <span class="server-ip">192.168.1.105:27015</span>
-            <button class="copy-btn"><i class="fas fa-copy"></i> Copiar</button>
-          </div>
-        </div>
-        <p>Explora los diversos biomas de Genesis en modo PvE. Tasas de recolección x5, domesticación x8.</p>
-        <div><span class="badge bg-success">Online</span> <span>Jugadores: 35/70</span></div>
+      <div class="info-item">
+        <span class="info-label">Jugadores</span>
+        <span class="info-value players-value"></span>
       </div>
     </div>
-  </div>
-</div>
-
-<div class="card animate-fade-in">
-  <div class="card-header">
-    Servidores Especiales
-  </div>
-  <div class="card-body">
-    <div class="server-list">
-      <div class="server-card">
-        <div class="server-info">
-          <span class="server-name">ALPHA ARK - Eventos</span>
-          <div>
-            <span class="server-ip">192.168.1.106:27015</span>
-            <button class="copy-btn"><i class="fas fa-copy"></i> Copiar</button>
-          </div>
-        </div>
-        <p>Servidor dedicado a eventos especiales y torneos. Consulta el calendario para más información.</p>
-        <div><span class="badge bg-warning">Mantenimiento</span></div>
-      </div>
-      
-      <div class="server-card">
-        <div class="server-info">
-          <span class="server-name">ALPHA ARK - Roleplay</span>
-          <div>
-            <span class="server-ip">192.168.1.107:27015</span>
-            <button class="copy-btn"><i class="fas fa-copy"></i> Copiar</button>
-          </div>
-        </div>
-        <p>Servidor dedicado al roleplay con reglas especiales y eventos narrativos.</p>
-        <div><span class="badge bg-success">Online</span> <span>Jugadores: 25/50</span></div>
+    
+    <div class="server-ip-container">
+      <div class="server-ip"></div>
+      <div class="server-actions">
+        <button class="copy-btn" onclick="copyToClipboard(this)">
+          <i class="fas fa-copy"></i>
+          Copiar IP
+        </button>
+        <a href="#" class="connect-btn" target="_blank">
+          <i class="fas fa-play"></i>
+          Conectar
+        </a>
       </div>
     </div>
+    
+    
   </div>
-</div>
+</template>
 
-<div class="card animate-fade-in">
-  <div class="card-header">
-    Estado del Servidor
-  </div>
-  <div class="card-body">
-    <p>Todos nuestros servidores están monitoreados 24/7 para garantizar la mejor experiencia posible.</p>
-    <p>Última actualización: <strong>Hoy a las 15:30</strong></p>
-    <p>Próximo mantenimiento programado: <strong>Domingo, 02:00 - 04:00</strong></p>
-  </div>
-</div>
+<script>
+
+
+// Función para cargar servidores desde la API
+async function loadServers() {
+    try {
+        const response = await fetch('/api/servers');
+        const data = await response.json();
+        
+        if (data.success) {
+            displayServers(data.data);
+        } else {
+            throw new Error(data.error || 'Error cargando servidores');
+        }
+    } catch (error) {
+        console.error('Error loading servers:', error);
+        showError('Error cargando servidores. Intenta recargar la página.');
+    }
+}
+
+     // Función para mostrar servidores en la página
+     function displayServers(servers) {
+         const grid = document.getElementById('serversGrid');
+         const template = document.getElementById('serverTemplate');
+
+         // Limpiar grid
+         grid.innerHTML = '';
+
+         if (servers.length === 0) {
+             grid.innerHTML = '<p class="no-servers">No hay servidores disponibles</p>';
+             return;
+         }
+
+         servers.forEach(server => {
+             const clone = template.content.cloneNode(true);
+
+             // Llenar datos del servidor
+             clone.querySelector('.server-name-text').textContent = server.name;
+             clone.querySelector('.server-ip').textContent = `${server.ip}:${server.port}`;
+
+             // Configurar imagen del mapa
+             const mapImage = clone.querySelector('.map-image');
+             const mapImageName = server.map || server.name;
+             const mapName = server.name;
+             const imagePath = `/assets/img/servers/${mapImageName}.webp`;
+             mapImage.src = imagePath;
+             mapImage.alt = `${mapName} - ${server.name}`;
+             
+             // Manejar error de imagen
+             mapImage.onerror = function() {
+                 this.src = '/assets/img/servers/default.webp'; // Imagen por defecto
+                 this.alt = 'Mapa por defecto';
+             };
+        
+        // Estado del servidor
+        const statusElement = clone.querySelector('.server-status');
+        const statusText = clone.querySelector('.status-text');
+        const statusIndicator = clone.querySelector('.status-indicator');
+        
+        if (server.status === 'online') {
+            statusElement.className = 'server-status online';
+            statusText.textContent = 'Online';
+            statusIndicator.className = 'fas fa-circle status-indicator';
+        } else {
+            statusElement.className = 'server-status offline';
+            statusText.textContent = 'Offline';
+            statusIndicator.className = 'fas fa-circle status-indicator';
+        }
+        
+        // Información del servidor
+        clone.querySelector('.map-value').textContent = server.map || server.name;
+        clone.querySelector('.players-value').textContent = server.status === 'online' ? 
+            `${server.players}/${server.maxPlayers}` : '0/0';
+        
+        // Configurar versión en el badge
+        const versionText = clone.querySelector('.version-text');
+        versionText.textContent = server.version || 'Unknown';
+        
+        // Botones
+        const copyBtn = clone.querySelector('.copy-btn');
+        const connectBtn = clone.querySelector('.connect-btn');
+        
+        copyBtn.setAttribute('data-ip', `${server.ip}:${server.port}`);
+        connectBtn.href = server.steam || `steam://connect/${server.ip}:${server.port}`;
+        
+        // Agregar al grid
+        grid.appendChild(clone);
+    });
+}
+
+// Función para copiar IP al portapapeles
+function copyToClipboard(button) {
+    const ip = button.getAttribute('data-ip');
+    
+    navigator.clipboard.writeText(ip).then(() => {
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+        button.classList.add('btn-success');
+        
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove('btn-success');
+        }, 2000);
+    }).catch(err => {
+        console.error('Error copying to clipboard:', err);
+        showError('Error copiando IP al portapapeles');
+    });
+}
+
+// Función para mostrar errores
+function showError(message) {
+    const grid = document.getElementById('serversGrid');
+    grid.innerHTML = `
+        <div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>${message}</p>
+            <button onclick="loadServers()" class="btn btn-primary">Reintentar</button>
+        </div>
+    `;
+}
+
+// Función para actualizar servidores automáticamente
+function startAutoRefresh() {
+    // Actualizar cada 30 segundos
+    setInterval(loadServers, 30000);
+}
+
+// Cargar servidores al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    loadServers();
+    startAutoRefresh();
+});
+</script>
+
+<style>
+.loading-placeholder {
+    text-align: center;
+    padding: 2rem;
+    grid-column: 1 / -1;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    text-align: center;
+    padding: 2rem;
+    grid-column: 1 / -1;
+    color: var(--danger-color);
+}
+
+.error-message i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.no-servers {
+    text-align: center;
+    padding: 2rem;
+    grid-column: 1 / -1;
+    color: var(--muted-text);
+}
+
+.btn-success {
+    background: var(--success-color) !important;
+    color: white !important;
+}
+
+.version-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 4px 8px;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.version-text {
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+</style>
