@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 // Ruta para la tienda
 router.get('/store', (req, res) => {
-  res.render('store', { 
+  res.render('storse', { 
     title: 'ALPHA ARK - Tienda',
     activeTab: 'store'
   });
@@ -27,7 +27,7 @@ router.get('/ips', (req, res) => {
 
 // Ruta para configuraciones
 router.get('/settings', (req, res) => {
-  res.render('settings', { 
+  res.render('settingss', { 
     title: 'ALPHA ARK - Configuraciones',
     activeTab: 'settings'
   });
