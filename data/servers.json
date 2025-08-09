@@ -1,86 +1,86 @@
 [
     {
         "name": "Genesis 2",
-        "ip": "83.147.29.99",
-        "port": 27075,
-        "steam": "steam://connect/83.147.29.99:27075",
+        "ip": "185.115.205.180",
+        "port": 29017,
+        "steam": "steam://connect/185.115.205.180:29017",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/32429860"
     },
     {
         "name": "Genesis 1",
-        "ip": "83.147.29.99",
-        "port": 27105,
-        "steam": "steam://connect/83.147.29.99:27105",
+        "ip": "185.115.205.180",
+        "port": 29014,
+        "steam": "steam://connect/185.115.205.180:29014",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/32433602"
     },
     {
         "name": "Aberration",
-        "ip": "83.147.29.99",
-        "port": 27045,
-        "steam": "steam://connect/83.147.29.99:27045",
+        "ip": "185.115.205.200",
+        "port": 29002,
+        "steam": "steam://connect/185.115.205.200:29002",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/32444300"
     },
     {
         "name": "Crystal Isles",
-        "ip": "83.147.29.99",
-        "port": 27085,
-        "steam": "steam://connect/83.147.29.99:27085",
+        "ip": "185.115.205.180",
+        "port": 29005,
+        "steam": "steam://connect/185.115.205.180:29005",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/32449864"
     },
     {
         "name": "Fjordur",
-        "ip": "83.147.29.99",
-        "port": 27115,
-        "steam": "steam://connect/83.147.29.99:27115",
+        "ip": "185.115.205.200",
+        "port": 29011,
+        "steam": "steam://connect/185.115.205.200:29011",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/32444299"
     },
     {
         "name": "The Island",
-        "ip": "83.147.29.99",
-        "port": 27015,
-        "steam": "steam://connect/83.147.29.99:27015",
+        "ip": "185.115.205.200",
+        "port": 29032,
+        "steam": "steam://connect/185.115.205.200:29032",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/32416567"
     },
     {
         "name": "The Center",
-        "ip": "83.147.29.99",
-        "port": 27025,
-        "steam": "steam://connect/83.147.29.99:27025",
+        "ip": "185.115.205.200",
+        "port": 29029,
+        "steam": "steam://connect/185.115.205.200:29029",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/32416570"
     },
     {
         "name": "Valguero",
-        "ip": "83.147.29.99",
-        "port": 27065,
-        "steam": "steam://connect/83.147.29.99:27065",
+        "ip": "185.115.205.200",
+        "port": 29035,
+        "steam": "steam://connect/185.115.205.200:29035",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/32444298"
     },
     {
         "name": "Ragnarok",
-        "ip": "83.147.29.99",
-        "port": 27035,
-        "steam": "steam://connect/83.147.29.99:27035",
+        "ip": "185.115.205.200",
+        "port": 29023,
+        "steam": "steam://connect/185.115.205.200:29023",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/32444303"
     },
     {
         "name": "Extinction",
-        "ip": "83.147.29.99",
-        "port": 27125,
-        "steam": "steam://connect/83.147.29.99:27125",
+        "ip": "185.115.205.180",
+        "port": 29008,
+        "steam": "steam://connect/185.115.205.180:29008",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/32444302"
     },
     {
         "name": "Scorched Earth",
-        "ip": "83.147.29.99",
-        "port": 27055,
-        "steam": "steam://connect/83.147.29.99:27055",
+        "ip": "185.115.205.180",
+        "port": 29020,
+        "steam": "steam://connect/185.115.205.180:29020",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/33602076"
     },
     {
         "name": "Lost Island",
-        "ip": "83.147.29.99",
-        "port": 27095,
-        "steam": "steam://connect/83.147.29.99:27095",
+        "ip": "185.115.205.180",
+        "port": 29026,
+        "steam": "steam://connect/185.115.205.180:29026",
         "battlemetrics": "https://www.battlemetrics.com/servers/ark/33067698"
     }
 ]

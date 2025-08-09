@@ -1,350 +1,579 @@
-<h1 class="page-title animate-fade-in">Leaderboard</h1>
+<div class="page-header animate-fade-in">
+  <h1>ALPHA ARK Leaderboard</h1>
+  <p>Track player and tribe performance across all ALPHA ARK servers</p>
+</div>
 
+<% if (typeof error !== 'undefined' && error) { %>
+  <div class="error-message animate-fade-in">
+    <i class="fas fa-exclamation-triangle"></i>
+    <%= error %>
+  </div>
+<% } %>
+
+<!-- Estadísticas Generales -->
+<% if (generalStats) { %>
+<div class="stats-overview animate-fade-in">
+  <div class="stat-card">
+    <i class="fas fa-users"></i>
+    <div class="stat-content">
+      <span class="stat-value"><%= generalStats.players.totalPlayers.toLocaleString() %></span>
+      <span class="stat-label">Total Players</span>
+    </div>
+  </div>
+  <div class="stat-card">
+    <i class="fas fa-flag"></i>
+    <div class="stat-content">
+      <span class="stat-value"><%= generalStats.tribes.totalTribes.toLocaleString() %></span>
+      <span class="stat-label">Total Tribes</span>
+    </div>
+  </div>
+  <div class="stat-card">
+    <i class="fas fa-clock"></i>
+    <div class="stat-content">
+      <span class="stat-value"><%= Math.round(generalStats.players.totalPlayTime / 60).toLocaleString() %>h</span>
+      <span class="stat-label">Total Time</span>
+    </div>
+  </div>
+  <div class="stat-card">
+    <i class="fas fa-dragon"></i>
+    <div class="stat-content">
+      <span class="stat-value"><%= generalStats.players.totalDinosTamed.toLocaleString() %></span>
+      <span class="stat-label">Tamed Dinos</span>
+    </div>
+  </div>
+</div>
+<% } %>
+
+<!-- Top Tribus por Damage Score -->
 <div class="card animate-fade-in">
   <div class="card-header">
-    Top PvP Tribes
+    <h2><i class="fas fa-flag"></i> Top Tribes by Damage Score</h2>
+    <div class="table-controls">
+      <div class="search-controls">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="tribeSearch" placeholder="Search tribes..." oninput="filterAndPaginateTribes()">
+        </div>
+      </div>
+      <div class="order-controls">
+        <label for="tribeOrderBy">Sort by:</label>
+        <select id="tribeOrderBy" onchange="applyTribeSorting()">
+          <option value="DamageScore" selected>Damage Score</option>
+        </select>
+        <button onclick="toggleTribeDirection()" class="direction-btn">
+          <i class="fas fa-<%= currentFilters.tribeOrderDirection === 'DESC' ? 'sort-down' : 'sort-up' %>"></i>
+        </button>
+      </div>
+    </div>
   </div>
   <div class="card-body">
-    <table class="leaderboard-table">
-      <thead>
-        <tr>
-          <th><i class="fas fa-hashtag"></i> RANK</th>
-          <th><i class="fas fa-users"></i> TRIBE NAME</th>
-          <th><i class="fas fa-bolt"></i> TRIBE DAMAGE</th>
-          <th><i class="fas fa-skull"></i> KILLS</th>
-          <th><i class="fas fa-skull-crossbones"></i> DEATHS</th>
-          <th><i class="fas fa-balance-scale"></i> KD</th>
-          <th><i class="fas fa-dragon"></i> TAME KILLS</th>
-          <th><i class="fas fa-clock"></i> TIME PLAYED</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="rank top-rank">1</td>
-          <td>The Predators</td>
-          <td>125,000</td>
-          <td>450</td>
-          <td>120</td>
-          <td>3.75</td>
-          <td>89</td>
-          <td>2,450h</td>
-        </tr>
-        <tr>
-          <td class="rank top-rank">2</td>
-          <td>Wyvern Riders</td>
-          <td>118,500</td>
-          <td>420</td>
-          <td>115</td>
-          <td>3.65</td>
-          <td>76</td>
-          <td>2,180h</td>
-        </tr>
-        <tr>
-          <td class="rank top-rank">3</td>
-          <td>The Indomitable</td>
-          <td>105,200</td>
-          <td>380</td>
-          <td>105</td>
-          <td>3.62</td>
-          <td>68</td>
-          <td>1,950h</td>
-        </tr>
-        <tr>
-          <td class="rank">4</td>
-          <td>Extinction Squad</td>
-          <td>98,750</td>
-          <td>350</td>
-          <td>98</td>
-          <td>3.57</td>
-          <td>62</td>
-          <td>1,820h</td>
-        </tr>
-        <tr>
-          <td class="rank">5</td>
-          <td>Raptor Pack</td>
-          <td>92,300</td>
-          <td>320</td>
-          <td>92</td>
-          <td>3.48</td>
-          <td>58</td>
-          <td>1,680h</td>
-        </tr>
-        <tr>
-          <td class="rank">6</td>
-          <td>Alpha Hunters</td>
-          <td>85,600</td>
-          <td>295</td>
-          <td>88</td>
-          <td>3.35</td>
-          <td>52</td>
-          <td>1,550h</td>
-        </tr>
-        <tr>
-          <td class="rank">7</td>
-          <td>Night Watchers</td>
-          <td>78,900</td>
-          <td>270</td>
-          <td>82</td>
-          <td>3.29</td>
-          <td>48</td>
-          <td>1,420h</td>
-        </tr>
-        <tr>
-          <td class="rank">8</td>
-          <td>Dino Masters</td>
-          <td>72,400</td>
-          <td>245</td>
-          <td>78</td>
-          <td>3.14</td>
-          <td>44</td>
-          <td>1,320h</td>
-        </tr>
-        <tr>
-          <td class="rank">9</td>
-          <td>Survivors Elite</td>
-          <td>65,800</td>
-          <td>220</td>
-          <td>72</td>
-          <td>3.06</td>
-          <td>40</td>
-          <td>1,180h</td>
-        </tr>
-        <tr>
-          <td class="rank">10</td>
-          <td>Cave Dwellers</td>
-          <td>60,200</td>
-          <td>195</td>
-          <td>68</td>
-          <td>2.87</td>
-          <td>36</td>
-          <td>1,050h</td>
-        </tr>
-      </tbody>
-    </table>
+    <% if (tribeData && tribeData.length > 0) { %>
+      <table class="leaderboard-table" id="tribeTable">
+        <thead>
+          <tr>
+            <th><i class="fas fa-hashtag"></i> RANK</th>
+            <th><i class="fas fa-users"></i> TRIBE NAME</th>
+            <th><i class="fas fa-bolt"></i> DAMAGE SCORE</th>
+          </tr>
+        </thead>
+        <tbody id="tribeTableBody">
+          <% tribeData.forEach((tribe, index) => { %>
+            <tr data-tribe-name="<%= tribe.TribeName || 'No Name' %>" data-damage-score="<%= tribe.DamageScore %>">
+              <td class="rank <%= index < 3 ? 'top-rank' : '' %>"><%= index + 1 %></td>
+              <td><%= tribe.TribeName || 'No Name' %></td>
+              <td class="<%= tribe.DamageScore >= 0 ? 'positive-score' : 'negative-score' %>">
+                <%= tribe.DamageScore.toLocaleString() %>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      
+      <!-- Paginación de Tribus -->
+      <div class="pagination" id="tribePagination">
+        <div class="pagination-controls">
+          <button onclick="changeTribePage(-1)" class="page-btn" id="tribePrevBtn">
+            <i class="fas fa-chevron-left"></i> Previous
+          </button>
+          
+          <div class="page-numbers" id="tribePageNumbers"></div>
+          
+          <button onclick="changeTribePage(1)" class="page-btn" id="tribeNextBtn">
+            Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <span class="pagination-info" id="tribePaginationInfo">
+          Page 1 of 1 (<%= totalTribes %> total tribes)
+        </span>
+      </div>
+    <% } else { %>
+      <div class="no-data">
+        <i class="fas fa-database"></i>
+        <p>No tribe data found</p>
+      </div>
+    <% } %>
   </div>
 </div>
 
+<!-- Top Jugadores -->
 <div class="card animate-fade-in">
   <div class="card-header">
-    Top PvE Tribes
+    <h2><i class="fas fa-user"></i> Top Players</h2>
+    <div class="table-controls">
+      <div class="search-controls">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="playerSearch" placeholder="Search players..." oninput="filterAndPaginatePlayers()">
+        </div>
+      </div>
+      <div class="order-controls">
+        <label for="playerOrderBy">Sort by:</label>
+        <select id="playerOrderBy" onchange="applyPlayerSorting()">
+          <option value="PlayerKills" selected>Player Kills</option>
+          <option value="PlayTime">Play Time</option>
+          <option value="DinoKills">Dino Kills</option>
+          <option value="DinosTamed">Tamed Dinos</option>
+          <option value="DeathByPlayer">Deaths by Players</option>
+        </select>
+        <button onclick="togglePlayerDirection()" class="direction-btn">
+          <i class="fas fa-<%= currentFilters.playerOrderDirection === 'DESC' ? 'sort-down' : 'sort-up' %>"></i>
+        </button>
+      </div>
+    </div>
   </div>
   <div class="card-body">
-    <table class="leaderboard-table">
-      <thead>
-        <tr>
-          <th><i class="fas fa-hashtag"></i> RANK</th>
-          <th><i class="fas fa-users"></i> TRIBE NAME</th>
-          <th><i class="fas fa-bolt"></i> TRIBE DAMAGE</th>
-          <th><i class="fas fa-skull"></i> KILLS</th>
-          <th><i class="fas fa-skull-crossbones"></i> DEATHS</th>
-          <th><i class="fas fa-balance-scale"></i> KD</th>
-          <th><i class="fas fa-dragon"></i> TAME KILLS</th>
-          <th><i class="fas fa-clock"></i> TIME PLAYED</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="rank top-rank">1</td>
-          <td>Supreme Builders</td>
-          <td>150,000</td>
-          <td>680</td>
-          <td>45</td>
-          <td>15.11</td>
-          <td>125</td>
-          <td>3,250h</td>
-        </tr>
-        <tr>
-          <td class="rank top-rank">2</td>
-          <td>Dino Collectors</td>
-          <td>135,800</td>
-          <td>620</td>
-          <td>42</td>
-          <td>14.76</td>
-          <td>118</td>
-          <td>2,980h</td>
-        </tr>
-        <tr>
-          <td class="rank top-rank">3</td>
-          <td>Genesis Explorers</td>
-          <td>120,500</td>
-          <td>580</td>
-          <td>40</td>
-          <td>14.50</td>
-          <td>112</td>
-          <td>2,750h</td>
-        </tr>
-        <tr>
-          <td class="rank">4</td>
-          <td>Ark Architects</td>
-          <td>110,200</td>
-          <td>540</td>
-          <td>38</td>
-          <td>14.21</td>
-          <td>105</td>
-          <td>2,520h</td>
-        </tr>
-        <tr>
-          <td class="rank">5</td>
-          <td>Dino Breeders</td>
-          <td>95,600</td>
-          <td>480</td>
-          <td>35</td>
-          <td>13.71</td>
-          <td>98</td>
-          <td>2,280h</td>
-        </tr>
-        <tr>
-          <td class="rank">6</td>
-          <td>Peaceful Warriors</td>
-          <td>90,300</td>
-          <td>450</td>
-          <td>33</td>
-          <td>13.64</td>
-          <td>92</td>
-          <td>2,150h</td>
-        </tr>
-        <tr>
-          <td class="rank">7</td>
-          <td>Mega Builders</td>
-          <td>85,800</td>
-          <td>420</td>
-          <td>32</td>
-          <td>13.13</td>
-          <td>88</td>
-          <td>2,020h</td>
-        </tr>
-        <tr>
-          <td class="rank">8</td>
-          <td>Dino Sanctuary</td>
-          <td>80,400</td>
-          <td>390</td>
-          <td>30</td>
-          <td>13.00</td>
-          <td>84</td>
-          <td>1,880h</td>
-        </tr>
-        <tr>
-          <td class="rank">9</td>
-          <td>Explorer's Guild</td>
-          <td>75,200</td>
-          <td>360</td>
-          <td>28</td>
-          <td>12.86</td>
-          <td>78</td>
-          <td>1,750h</td>
-        </tr>
-        <tr>
-          <td class="rank">10</td>
-          <td>ARK Farmers</td>
-          <td>70,800</td>
-          <td>330</td>
-          <td>26</td>
-          <td>12.69</td>
-          <td>72</td>
-          <td>1,620h</td>
-        </tr>
-      </tbody>
-    </table>
+    <% if (playerData && playerData.length > 0) { %>
+      <table class="leaderboard-table" id="playerTable">
+        <thead>
+          <tr>
+            <th><i class="fas fa-hashtag"></i> RANK</th>
+            <th><i class="fas fa-user"></i> PLAYER</th>
+            <th><i class="fas fa-users"></i> TRIBE</th>
+            <th><i class="fas fa-clock"></i> TIME</th>
+            <th><i class="fas fa-skull"></i> KILLS</th>
+            <th><i class="fas fa-dragon"></i> DINO KILLS</th>
+            <th><i class="fas fa-heart"></i> TAMED</th>
+            <th><i class="fas fa-skull-crossbones"></i> DEATHS</th>
+            <th><i class="fas fa-balance-scale"></i> KD</th>
+          </tr>
+        </thead>
+        <tbody id="playerTableBody">
+          <% playerData.forEach((player, index) => { %>
+            <tr data-player-name="<%= player.PlayerName || 'No Name' %>" 
+                data-tribe-name="<%= player.TribeName || 'No Tribe' %>"
+                data-play-time="<%= player.PlayTime %>"
+                data-player-kills="<%= player.PlayerKills %>"
+                data-dino-kills="<%= player.DinoKills %>"
+                data-dinos-tamed="<%= player.DinosTamed %>"
+                data-death-by-player="<%= player.DeathByPlayer %>">
+              <td class="rank <%= index < 3 ? 'top-rank' : '' %>"><%= index + 1 %></td>
+              <td>
+                <div class="player-info">
+                  <span class="player-name"><%= player.PlayerName || 'No Name' %></span>
+                  <% if (player.SteamName && player.SteamName !== player.PlayerName) { %>
+                    <small class="steam-name">(<%= player.SteamName %>)</small>
+                  <% } %>
+                </div>
+              </td>
+              <td><%= player.TribeName || 'No Tribe' %></td>
+              <td><%= Math.round(player.PlayTime / 60).toLocaleString() %>h</td>
+              <td><%= player.PlayerKills.toLocaleString() %></td>
+              <td><%= player.DinoKills.toLocaleString() %></td>
+              <td><%= player.DinosTamed.toLocaleString() %></td>
+              <td><%= player.DeathByPlayer.toLocaleString() %></td>
+              <td class="<%= (player.PlayerKills / Math.max(player.DeathByPlayer, 1)).toFixed(2) >= 1 ? 'positive-score' : 'negative-score' %>">
+                <%= (player.PlayerKills / Math.max(player.DeathByPlayer, 1)).toFixed(2) %>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      
+      <!-- Paginación de Jugadores -->
+      <div class="pagination" id="playerPagination">
+        <div class="pagination-controls">
+          <button onclick="changePlayerPage(-1)" class="page-btn" id="playerPrevBtn">
+            <i class="fas fa-chevron-left"></i> Previous
+          </button>
+          
+          <div class="page-numbers" id="playerPageNumbers"></div>
+          
+          <button onclick="changePlayerPage(1)" class="page-btn" id="playerNextBtn">
+            Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <span class="pagination-info" id="playerPaginationInfo">
+          Page 1 of 1 (<%= totalPlayers %> total players)
+        </span>
+      </div>
+    <% } else { %>
+      <div class="no-data">
+        <i class="fas fa-database"></i>
+        <p>No player data found</p>
+      </div>
+    <% } %>
   </div>
 </div>
 
+<!-- Información del Sistema de Ranking -->
 <div class="card animate-fade-in">
   <div class="card-header">
-    Featured Players
+    <h2><i class="fas fa-info-circle"></i> System Information</h2>
   </div>
   <div class="card-body">
-    <table class="leaderboard-table">
-      <thead>
-        <tr>
-          <th><i class="fas fa-hashtag"></i> RANK</th>
-          <th><i class="fas fa-user"></i> PLAYER</th>
-          <th><i class="fas fa-users"></i> TRIBE</th>
-          <th><i class="fas fa-skull"></i> KILLS</th>
-          <th><i class="fas fa-skull-crossbones"></i> DEATHS</th>
-          <th><i class="fas fa-balance-scale"></i> KD</th>
-          <th><i class="fas fa-dragon"></i> TAMES</th>
-          <th><i class="fas fa-clock"></i> TIME PLAYED</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="rank top-rank">1</td>
-          <td>RexMaster99</td>
-          <td>The Predators</td>
-          <td>450</td>
-          <td>120</td>
-          <td>3.75</td>
-          <td>89</td>
-          <td>2,450h</td>
-        </tr>
-        <tr>
-          <td class="rank top-rank">2</td>
-          <td>DinoHunter</td>
-          <td>Wyvern Riders</td>
-          <td>420</td>
-          <td>115</td>
-          <td>3.65</td>
-          <td>76</td>
-          <td>2,180h</td>
-        </tr>
-        <tr>
-          <td class="rank top-rank">3</td>
-          <td>SurvivalPro</td>
-          <td>Supreme Builders</td>
-          <td>380</td>
-          <td>105</td>
-          <td>3.62</td>
-          <td>68</td>
-          <td>1,950h</td>
-        </tr>
-        <tr>
-          <td class="rank">4</td>
-          <td>WyvernQueen</td>
-          <td>Dino Collectors</td>
-          <td>350</td>
-          <td>98</td>
-          <td>3.57</td>
-          <td>62</td>
-          <td>1,820h</td>
-        </tr>
-        <tr>
-          <td class="rank">5</td>
-          <td>ArkLegend</td>
-          <td>The Indomitable</td>
-          <td>320</td>
-          <td>92</td>
-          <td>3.48</td>
-          <td>58</td>
-          <td>1,680h</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="card animate-fade-in">
-  <div class="card-header">
-    Ranking System
-  </div>
-  <div class="card-body">
-    <div class="settings-section">
-      <h3 class="settings-title">How are points calculated?</h3>
+    <div class="info-section">
+      <h3>How are points calculated?</h3>
       <p>Our ranking system is based on several factors:</p>
       <ul>
-        <li><strong>PvP:</strong> Successful raids, base defense, player eliminations, bosses defeated</li>
-        <li><strong>PvE:</strong> Built structures, tamed dinosaurs, bosses defeated, exploration</li>
-        <li><strong>Players:</strong> Level, playtime, unlocked achievements, contribution to tribe</li>
+        <li><strong>Damage Score:</strong> Score based on damage caused by the tribe</li>
+        <li><strong>Play Time:</strong> Total hours played on the server</li>
+        <li><strong>Kills:</strong> Player and dinosaur eliminations</li>
+        <li><strong>Tamed:</strong> Number of tamed dinosaurs</li>
+        <li><strong>K/D Ratio:</strong> Relationship between kills and deaths</li>
       </ul>
     </div>
     
-    <div class="settings-section">
-      <h3 class="settings-title">Rewards</h3>
-      <p>Top ranked tribes and players receive monthly rewards:</p>
+    <div class="info-section">
+      <h3>Updates</h3>
+      <p>Data is updated in real time from the server database.</p>
       <ul>
-        <li><strong>Top 3 PvP/PvE:</strong> Special kits, exclusive dinosaurs, premium resources</li>
-        <li><strong>Top 10 PvP/PvE:</strong> Additional resources and server benefits</li>
-        <li><strong>Featured Players:</strong> Exclusive cosmetics and special titles</li>
+        <li><strong>Client-side Pagination:</strong> All data is loaded initially for fast searching and navigation</li>
+        <li><strong>Real-time Search:</strong> Search results update instantly as you type</li>
+        <li><strong>Sorting:</strong> You can sort by different criteria</li>
+        <li><strong>Performance:</strong> Optimized for smooth user experience</li>
       </ul>
     </div>
   </div>
 </div>
+
+<script>
+// Variables globales para la paginación del lado del cliente
+let currentTribePage = 1;
+let currentPlayerPage = 1;
+let itemsPerPage = 10;
+let filteredTribeData = [];
+let filteredPlayerData = [];
+let originalPlayerData = []; // Datos originales sin filtrar
+let originalTribeData = []; // Datos originales sin filtrar
+let currentPlayerSort = { orderBy: 'PlayerKills', direction: 'desc' };
+let currentTribeSort = { orderBy: 'DamageScore', direction: 'desc' };
+
+// Inicializar los datos filtrados al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+  // Inicializar datos de tribus
+  const tribeRows = Array.from(document.querySelectorAll('#tribeTableBody tr'));
+  originalTribeData = tribeRows.map(row => ({
+    element: row,
+    name: row.getAttribute('data-tribe-name'),
+    damageScore: parseFloat(row.getAttribute('data-damage-score'))
+  }));
+  
+  // Inicializar datos de jugadores
+  const playerRows = Array.from(document.querySelectorAll('#playerTableBody tr'));
+  originalPlayerData = playerRows.map(row => ({
+    element: row,
+    name: row.getAttribute('data-player-name'),
+    tribe: row.getAttribute('data-tribe-name'),
+    playTime: parseFloat(row.getAttribute('data-play-time')),
+    playerKills: parseFloat(row.getAttribute('data-player-kills')),
+    dinoKills: parseFloat(row.getAttribute('data-dino-kills')),
+    dinosTamed: parseFloat(row.getAttribute('data-dinos-tamed')),
+    deathByPlayer: parseFloat(row.getAttribute('data-death-by-player'))
+  }));
+  
+  // Aplicar ordenamiento inicial
+  filteredPlayerData = [...originalPlayerData];
+  filteredTribeData = [...originalTribeData];
+  
+  // Sincronizar dropdowns con el estado interno
+  document.getElementById('playerOrderBy').value = currentPlayerSort.orderBy;
+  document.getElementById('tribeOrderBy').value = currentTribeSort.orderBy;
+  
+  // Aplicar paginación inicial
+  updateTribePagination();
+  updatePlayerPagination();
+  
+  // Aplicar ordenamiento inicial basado en los valores por defecto
+  applyInitialSorting();
+});
+
+// Funciones para el filtrado y paginación de tribus
+function filterAndPaginateTribes() {
+  const searchTerm = document.getElementById('tribeSearch').value.toLowerCase().trim();
+  
+  // Filtrar desde los datos originales
+  filteredTribeData = originalTribeData.filter(item => {
+    const matches = item.name.toLowerCase().includes(searchTerm);
+    return matches;
+  });
+  
+  // Aplicar el ordenamiento actual después de filtrar
+  applyCurrentTribeSort();
+  
+  // Reset a la primera página
+  currentTribePage = 1;
+  updateTribePagination();
+}
+
+function updateTribePagination() {
+  const totalItems = filteredTribeData.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  
+  // Obtener el tbody de la tabla de tribus
+  const tbody = document.getElementById('tribeTableBody');
+  
+  // Limpiar completamente el tbody
+  tbody.innerHTML = '';
+  
+  // Reordenar físicamente las filas según el array ordenado
+  filteredTribeData.forEach((item, index) => {
+    tbody.appendChild(item.element);
+    
+    // Actualizar el número de ranking en la primera columna
+    const rankCell = item.element.querySelector('td:first-child');
+    if (rankCell) {
+      rankCell.textContent = index + 1;
+    }
+  });
+  
+  // Ocultar todas las filas primero
+  filteredTribeData.forEach(item => {
+    item.element.style.display = 'none';
+  });
+  
+  // Mostrar solo las filas de la página actual
+  const startIndex = (currentTribePage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  
+  // Mostrar solo las filas de la página actual
+  for (let i = startIndex; i < endIndex && i < totalItems; i++) {
+    filteredTribeData[i].element.style.display = '';
+  }
+  
+  // Actualizar controles de paginación
+  updatePaginationControls('tribe', currentTribePage, totalPages, totalItems);
+}
+
+function changeTribePage(direction) {
+  const totalPages = Math.ceil(filteredTribeData.length / itemsPerPage);
+  const newPage = currentTribePage + direction;
+  
+  if (newPage >= 1 && newPage <= totalPages) {
+    currentTribePage = newPage;
+    updateTribePagination();
+  }
+}
+
+// Funciones para el filtrado y paginación de jugadores
+function filterAndPaginatePlayers() {
+  const searchTerm = document.getElementById('playerSearch').value.toLowerCase().trim();
+  
+  // Filtrar desde los datos originales
+  filteredPlayerData = originalPlayerData.filter(item => {
+    const matches = item.name.toLowerCase().includes(searchTerm) || 
+                   item.tribe.toLowerCase().includes(searchTerm);
+    return matches;
+  });
+  
+  // Aplicar el ordenamiento actual después de filtrar
+  applyCurrentPlayerSort();
+  
+  // Reset a la primera página
+  currentPlayerPage = 1;
+  updatePlayerPagination();
+}
+
+function updatePlayerPagination() {
+  const totalItems = filteredPlayerData.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  
+  // Obtener el tbody de la tabla de jugadores
+  const tbody = document.getElementById('playerTableBody');
+  
+  // Limpiar completamente el tbody
+  tbody.innerHTML = '';
+  
+  // Reordenar físicamente las filas según el array ordenado
+  filteredPlayerData.forEach((item, index) => {
+    tbody.appendChild(item.element);
+    
+    // Actualizar el número de ranking en la primera columna
+    const rankCell = item.element.querySelector('td:first-child');
+    if (rankCell) {
+      rankCell.textContent = index + 1;
+    }
+  });
+  
+  // Ocultar todas las filas primero
+  filteredPlayerData.forEach(item => {
+    item.element.style.display = 'none';
+  });
+  
+  // Mostrar solo las filas de la página actual
+  const startIndex = (currentPlayerPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  
+  for (let i = startIndex; i < endIndex && i < totalItems; i++) {
+    filteredPlayerData[i].element.style.display = '';
+  }
+  
+  // Actualizar controles de paginación
+  updatePaginationControls('player', currentPlayerPage, totalPages, totalItems);
+}
+
+function changePlayerPage(direction) {
+  const totalPages = Math.ceil(filteredPlayerData.length / itemsPerPage);
+  const newPage = currentPlayerPage + direction;
+  
+  if (newPage >= 1 && newPage <= totalPages) {
+    currentPlayerPage = newPage;
+    updatePlayerPagination();
+  }
+}
+
+// Función genérica para actualizar controles de paginación
+function updatePaginationControls(type, currentPage, totalPages, totalItems) {
+  const prevBtn = document.getElementById(type + 'PrevBtn');
+  const nextBtn = document.getElementById(type + 'NextBtn');
+  const pageNumbers = document.getElementById(type + 'PageNumbers');
+  const paginationInfo = document.getElementById(type + 'PaginationInfo');
+  
+  // Actualizar botones
+  prevBtn.disabled = currentPage <= 1;
+  nextBtn.disabled = currentPage >= totalPages;
+  
+  // Actualizar números de página
+  pageNumbers.innerHTML = '';
+  for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPages, currentPage + 2); i++) {
+    const pageBtn = document.createElement('button');
+    pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+    pageBtn.textContent = i;
+    pageBtn.onclick = () => {
+      if (type === 'tribe') {
+        currentTribePage = i;
+        updateTribePagination();
+      } else {
+        currentPlayerPage = i;
+        updatePlayerPagination();
+      }
+    };
+    pageNumbers.appendChild(pageBtn);
+  }
+  
+  // Actualizar información de paginación
+  paginationInfo.textContent = `Page ${currentPage} of ${totalPages} (${totalItems} total ${type === 'tribe' ? 'tribes' : 'players'})`;
+}
+
+// Funciones para el ordenamiento
+function sortTribes() {
+  // Aplicar el ordenamiento actual
+  applyCurrentTribeSort();
+  
+  // Reset a la primera página y actualizar
+  currentTribePage = 1;
+  updateTribePagination();
+}
+
+// Función para aplicar el ordenamiento inicial
+function applyInitialSorting() {
+  console.log('Aplicando ordenamiento inicial...');
+  
+  // Aplicar ordenamiento inicial de tribus
+  applyCurrentTribeSort();
+  
+  // Aplicar ordenamiento inicial de jugadores
+  applyCurrentPlayerSort();
+  
+  console.log('Ordenamiento inicial aplicado. Jugadores ordenados por:', currentPlayerSort.orderBy, currentPlayerSort.direction);
+  
+  // Aplicar paginación con el ordenamiento inicial
+  updateTribePagination();
+  updatePlayerPagination();
+}
+
+// Función para aplicar ordenamiento cuando se cambia el criterio
+function applyPlayerSorting() {
+  // Aplicar el ordenamiento inmediatamente
+  sortPlayers();
+}
+
+// Función para aplicar el ordenamiento actual de jugadores
+function applyCurrentPlayerSort() {
+  const orderBy = document.getElementById('playerOrderBy').value;
+  const direction = document.querySelector('[onclick="togglePlayerDirection()"] i').classList.contains('fa-sort-down') ? 'desc' : 'asc';
+  
+  console.log('Aplicando ordenamiento de jugadores:', orderBy, direction);
+  
+  // Actualizar el estado del ordenamiento
+  currentPlayerSort = { orderBy, direction };
+  
+  // Aplicar ordenamiento
+  filteredPlayerData.sort((a, b) => {
+    let comparison = 0;
+    
+    if (orderBy === 'PlayTime') {
+      comparison = a.playTime - b.playTime;
+    } else if (orderBy === 'PlayerKills') {
+      comparison = a.playerKills - b.playerKills;
+    } else if (orderBy === 'DinoKills') {
+      comparison = a.dinoKills - b.dinoKills;
+    } else if (orderBy === 'DinosTamed') {
+      comparison = a.dinosTamed - b.dinosTamed;
+    } else if (orderBy === 'DeathByPlayer') {
+      comparison = a.deathByPlayer - b.deathByPlayer;
+    }
+    
+    return direction === 'desc' ? -comparison : comparison;
+  });
+  
+  console.log('Datos ordenados por', orderBy, ':', filteredPlayerData.slice(0, 5).map(p => ({name: p.name, kills: p.playerKills})));
+}
+
+// Función para aplicar ordenamiento de tribus cuando se cambia el criterio
+function applyTribeSorting() {
+  // Aplicar el ordenamiento inmediatamente
+  sortTribes();
+}
+
+// Función para aplicar el ordenamiento actual de tribus
+function applyCurrentTribeSort() {
+  const orderBy = document.getElementById('tribeOrderBy').value;
+  const direction = document.querySelector('[onclick="toggleTribeDirection()"] i').classList.contains('fa-sort-down') ? 'desc' : 'asc';
+  
+  // Actualizar el estado del ordenamiento
+  currentTribeSort = { orderBy, direction };
+  
+  // Aplicar ordenamiento
+  filteredTribeData.sort((a, b) => {
+    let comparison = 0;
+    if (orderBy === 'DamageScore') {
+      comparison = a.damageScore - b.damageScore;
+    }
+    return direction === 'desc' ? -comparison : comparison;
+  });
+}
+
+function sortPlayers() {
+  // Aplicar el ordenamiento actual
+  applyCurrentPlayerSort();
+  
+  // Reset a la primera página y actualizar
+  currentPlayerPage = 1;
+  updatePlayerPagination();
+}
+
+// Funciones para cambiar dirección de ordenamiento
+function toggleTribeDirection() {
+  const icon = document.querySelector('[onclick="toggleTribeDirection()"] i');
+  icon.classList.toggle('fa-sort-down');
+  icon.classList.toggle('fa-sort-up');
+  sortTribes();
+}
+
+function togglePlayerDirection() {
+  const icon = document.querySelector('[onclick="togglePlayerDirection()"] i');
+  icon.classList.toggle('fa-sort-down');
+  icon.classList.toggle('fa-sort-up');
+  sortPlayers();
+}
+</script>

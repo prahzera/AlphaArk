@@ -1,361 +1,274 @@
 /* 
- * ALPHA ARK - Estilos de la página de mods de cuevas
+ * ALPHA ARK - Cave Guides - Minimalist Design
  */
 
-.intro-section {
-  margin-bottom: var(--spacing-lg);
+.cave-guides-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Page Header */
+.page-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-xl) 0;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: var(--font-weight-black);
+  color: var(--light-text);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.02em;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--muted-text);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Map Sections */
+.map-section {
+  margin-bottom: var(--spacing-xxl);
+}
+
+/* Map Banner */
+.map-banner {
   position: relative;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-xl);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-.intro-section::after {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
-  height: 3px;
-  background-color: var(--primary-color);
-  border-radius: 3px;
-}
-
-.mods-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-md);
-}
-
-.mod-card {
+.map-banner img {
+  width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  transition: all var(--transition-speed) ease;
-}
-
-.mod-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background-color: var(--primary-color);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition-speed) ease;
-}
-
-.mod-card:hover {
-  transform: translateY(-10px);
-}
-
-.mod-card:hover::before {
-  transform: scaleX(1);
-}
-
-.mod-image-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.mod-image {
-  width: 100%;
-  height: 180px;
   object-fit: cover;
-  transition: transform var(--transition-speed) ease;
+  transition: transform 0.6s ease;
 }
 
-.mod-card:hover .mod-image {
+.map-banner:hover img {
   transform: scale(1.05);
 }
 
-.mod-image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.7) 100%);
-}
-
-.mod-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  padding: var(--spacing-sm);
-}
-
-.mod-title {
-  font-family: var(--font-family-condensed);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-md);
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-xs);
-  position: relative;
-  padding-bottom: var(--spacing-xs);
-}
-
-.mod-title::after {
-  content: '';
+.map-banner-content {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 50px;
-  height: 2px;
-  background-color: var(--primary-color);
-  transition: width var(--transition-speed) ease;
+  right: 0;
+  padding: var(--spacing-xl);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    transparent 100%
+  );
+  color: var(--light-text);
 }
 
-.mod-card:hover .mod-title::after {
-  width: 100%;
+.map-title {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-black);
+  margin-bottom: var(--spacing-xs);
+  letter-spacing: -0.01em;
 }
 
-.mod-description {
-  margin-bottom: var(--spacing-sm);
-  flex-grow: 1;
-}
-
-.mod-actions {
-  margin-top: auto;
-  display: flex;
-  justify-content: space-between;
-  padding-top: var(--spacing-sm);
-  border-top: var(--border-light);
-  font-size: var(--font-size-xs);
-}
-
-.mod-id {
-  font-family: monospace;
-  background-color: var(--dark-bg-alpha-30);
-  padding: 0.2rem 0.4rem;
-  border-radius: var(--btn-border-radius);
-}
-
-.mod-version {
+.cave-count {
+  font-size: 1rem;
   color: var(--primary-color);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-/* Guías de cuevas */
-.cave-guides {
-  margin-top: var(--spacing-xl);
+/* Caves Grid */
+.caves-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
 }
 
-.cave-guide-section {
-  margin-bottom: var(--spacing-lg);
-}
-
-.cave-guide-title {
-  font-family: var(--font-family-condensed);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-sm);
-  border-bottom: var(--border-light);
-  padding-bottom: var(--spacing-xs);
-  position: relative;
-}
-
-.cave-guide-title::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100px;
-  height: 3px;
-  background-color: var(--primary-color);
-}
-
-.cave-item {
-  margin-bottom: var(--spacing-md);
-  padding: var(--spacing-sm);
-  background-color: var(--dark-bg-alpha-20);
-  border-radius: var(--btn-border-radius);
-  transition: all var(--transition-speed) ease;
-  border: var(--border-light);
+/* Cave Cards */
+.cave-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-bg-hover);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.cave-item::before {
+.cave-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 3px;
-  height: 100%;
-  background-color: var(--primary-color);
+  right: 0;
+  height: 3px;
+  background: var(--primary-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
-.cave-item:hover {
-  background-color: var(--dark-bg-alpha-30);
-  transform: translateX(5px);
+.cave-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  border-color: var(--primary-color);
+}
+
+.cave-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Cave Header */
+.cave-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--glass-bg-hover);
 }
 
 .cave-name {
+  font-size: 1.4rem;
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-xs);
-  color: var(--primary-color);
-  font-family: var(--font-family-condensed);
-  font-size: var(--font-size-md);
+  color: var(--light-text);
+  margin: 0;
+  line-height: 1.2;
 }
 
-.cave-location {
-  font-size: var(--font-size-xs);
-  color: var(--muted-text);
-  margin-bottom: var(--spacing-xs);
-}
-
-.cave-difficulty {
-  margin-top: var(--spacing-xs);
-  display: flex;
-  align-items: center;
-}
-
-.difficulty-stars {
-  color: var(--gold-color);
-  letter-spacing: 2px;
-  margin-left: var(--spacing-xs);
-}
-
-/* Eventos de cuevas */
-.events-section {
-  margin-top: var(--spacing-xl);
-}
-
-.events-schedule {
-  margin-top: var(--spacing-sm);
-}
-
-.event-day {
-  margin-bottom: var(--spacing-md);
-  padding: var(--spacing-sm);
-  background-color: var(--dark-bg-alpha-20);
-  border-radius: var(--btn-border-radius);
-  border: var(--border-light);
-  transition: all var(--transition-speed) ease;
-  display: flex;
-  align-items: center;
-}
-
-.event-day:hover {
-  background-color: var(--dark-bg-alpha-30);
-  transform: translateX(5px);
-}
-
-.event-day-name {
-  font-weight: var(--font-weight-bold);
-  color: var(--primary-color);
-  font-family: var(--font-family-condensed);
-  font-size: var(--font-size-md);
-  min-width: 120px;
-}
-
-.event-description {
-  flex-grow: 1;
-}
-
-/* Evento mensual */
-.monthly-event {
-  margin-top: var(--spacing-lg);
-  padding: var(--spacing-md);
-  background-color: var(--primary-color-alpha-20);
-  border-radius: var(--card-border-radius);
-  border: 1px solid var(--primary-color);
-  position: relative;
-  overflow: hidden;
-}
-
-.monthly-event::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at top right, var(--primary-color-alpha-20), transparent 70%);
-  z-index: -1;
-}
-
-.monthly-event-title {
-  font-family: var(--font-family-condensed);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-lg);
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-sm);
-  text-align: center;
-}
-
-.monthly-event-date {
-  text-align: center;
-  margin-top: var(--spacing-sm);
-  font-weight: var(--font-weight-bold);
-  color: var(--primary-color);
-  font-size: var(--font-size-md);
-}
-
-/* Galería de cuevas */
-.gallery-section {
-  margin-top: var(--spacing-xl);
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-sm);
-}
-
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--card-border-radius);
-  aspect-ratio: 3/2;
-}
-
-.gallery-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-speed) ease;
-}
-
-.gallery-item:hover .gallery-image {
-  transform: scale(1.1);
-}
-
-.gallery-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  font-family: var(--font-family-condensed);
+.cave-spot {
+  background: var(--primary-color);
+  color: var(--light-text);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
   font-weight: var(--font-weight-medium);
-  transform: translateY(100%);
-  transition: transform var(--transition-speed) ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.gallery-item:hover .gallery-caption {
-  transform: translateY(0);
+/* Cave Details */
+.cave-details {
+  margin-bottom: var(--spacing-md);
 }
 
-/* Responsive */
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  gap: var(--spacing-xs);
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: 80px;
+}
+
+.detail-value {
+  font-size: 0.9rem;
+  color: var(--light-text);
+  font-weight: var(--font-weight-medium);
+  width: 100%;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.teleport-code {
+  background: var(--glass-bg);
+  color: var(--primary-color);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  border: 1px solid var(--glass-bg-hover);
+  font-weight: var(--font-weight-medium);
+  width: 100%;
+  word-break: break-all;
+  box-sizing: border-box;
+}
+
+/* Cave Video */
+.cave-video {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--glass-bg-hover);
+}
+
+.cave-video video {
+  width: 100%;
+  border-radius: 8px;
+  background: var(--dark-bg);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .event-day {
+  .cave-guides-container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .page-title {
+    font-size: 2.2rem;
+  }
+  
+  .page-subtitle {
+    font-size: 1rem;
+  }
+  
+  .map-banner {
+    height: 200px;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .map-banner-content {
+    padding: var(--spacing-lg);
+  }
+  
+  .map-title {
+    font-size: 1.8rem;
+  }
+  
+  .caves-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .cave-card {
+    padding: var(--spacing-md);
+  }
+  
+  .cave-header {
     flex-direction: column;
+    gap: var(--spacing-sm);
     align-items: flex-start;
   }
   
-  .event-day-name {
-    margin-bottom: var(--spacing-xs);
+  .detail-item {
+    gap: var(--spacing-xs);
   }
   
-  .gallery-grid {
-    grid-template-columns: 1fr 1fr;
+  .detail-label {
+    min-width: 60px;
+  }
+  
+  .teleport-code {
+    font-size: 0.75rem;
   }
 }

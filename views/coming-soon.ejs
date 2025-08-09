@@ -1,0 +1,354 @@
+<style>
+    .settings-coming-soon {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-lg);
+        background: linear-gradient(135deg, var(--dark-bg) 0%, var(--charcoal-color) 100%);
+        position: relative;
+    }
+
+    .settings-coming-soon::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,0,0,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        opacity: 0.3;
+        z-index: 0;
+    }
+
+    .main-content {
+        max-width: 1200px;
+        width: 100%;
+        z-index: 1;
+        position: relative;
+    }
+
+    .header-section {
+        text-align: center;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .settings-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto var(--spacing-md);
+        background: var(--primary-gradient);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+    }
+
+    .settings-icon::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: var(--primary-gradient);
+        border-radius: 50%;
+        z-index: -1;
+        opacity: 0.5;
+        animation: pulse 2s infinite;
+    }
+
+    .settings-icon i {
+        font-size: 2.5rem;
+        color: var(--light-text);
+    }
+
+    .page-title {
+        font-size: 3.5rem;
+        font-weight: var(--font-weight-black);
+        color: var(--light-text);
+        margin-bottom: var(--spacing-sm);
+        text-shadow: var(--text-shadow);
+        letter-spacing: 2px;
+    }
+
+    .page-subtitle {
+        font-size: 1.3rem;
+        color: var(--muted-text);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    .status-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-sm);
+        margin: var(--spacing-lg) 0;
+        padding: var(--spacing-sm) var(--spacing-lg);
+        background: var(--card-bg);
+        border-radius: var(--card-border-radius);
+        border: 1px solid var(--glass-bg);
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .status-dot {
+        width: 12px;
+        height: 12px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        animation: blink 1.5s infinite;
+    }
+
+    .status-text {
+        color: var(--muted-text);
+        font-weight: var(--font-weight-medium);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-md);
+        margin: var(--spacing-xl) 0;
+    }
+
+    .feature-card {
+        background: var(--card-bg);
+        border: 1px solid var(--glass-bg);
+        border-radius: var(--card-border-radius);
+        padding: var(--spacing-lg);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--primary-gradient);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary-color-alpha-20);
+    }
+
+    .feature-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .feature-header {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-gradient);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .feature-icon i {
+        font-size: 1.5rem;
+        color: var(--light-text);
+    }
+
+    .feature-title {
+        font-size: 1.2rem;
+        font-weight: var(--font-weight-bold);
+        color: var(--light-text);
+        margin: 0;
+    }
+
+    .feature-description {
+        color: var(--muted-text);
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    .action-section {
+        text-align: center;
+        margin-top: var(--spacing-xl);
+    }
+
+    .home-button {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) var(--spacing-lg);
+        background: var(--primary-gradient);
+        color: var(--light-text);
+        text-decoration: none;
+        border-radius: var(--btn-border-radius);
+        font-weight: var(--font-weight-bold);
+        transition: all 0.3s ease;
+        box-shadow: var(--btn-shadow);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .home-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--primary-gradient-hover);
+        transition: left 0.3s ease;
+        z-index: -1;
+    }
+
+    .home-button:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .home-button:hover::before {
+        left: 0;
+    }
+
+    .home-button i {
+        font-size: 1.1rem;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0.3; }
+    }
+
+    @media (max-width: 768px) {
+        .settings-coming-soon {
+            padding: var(--spacing-sm);
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+        }
+        
+        .page-subtitle {
+            font-size: 1.1rem;
+        }
+        
+        .features-grid {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-sm);
+        }
+        
+        .feature-card {
+            padding: var(--spacing-md);
+        }
+    }
+</style>
+
+<div class="settings-coming-soon">
+    <div class="main-content">
+        <div class="header-section">
+            <div class="settings-icon">
+                <i class="fas fa-cogs"></i>
+            </div>
+            <h1 class="page-title">SERVER SETTINGS</h1>
+            <p class="page-subtitle">
+                We're working hard to display all server configurations, multipliers, rules and important information for your Alpha Ark experience.
+            </p>
+            
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span class="status-text">Development in Progress</span>
+            </div>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="feature-title">Harvest Multipliers</h3>
+                </div>
+                <p class="feature-description">Resource gathering rates and farming settings for optimal gameplay experience.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <h3 class="feature-title">Taming Multipliers</h3>
+                </div>
+                <p class="feature-description">Taming speed, food consumption and effectiveness rates for creature taming.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3 class="feature-title">Server Rules</h3>
+                </div>
+                <p class="feature-description">Community guidelines and gameplay rules to ensure fair play for everyone.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">Map Regions</h3>
+                </div>
+                <p class="feature-description">Available maps and server locations with detailed information about each region.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Experience Rates</h3>
+                </div>
+                <p class="feature-description">Player and dino experience multipliers for faster progression and leveling.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="feature-title">Advanced Settings</h3>
+                </div>
+                <p class="feature-description">Breeding, maturation and other advanced configurations for experienced players.</p>
+            </div>
+        </div>
+        
+        <div class="action-section">
+            <a href="/" class="home-button">
+                <i class="fas fa-home"></i>
+                <span>Back to Home</span>
+            </a>
+        </div>
+    </div>
+</div>

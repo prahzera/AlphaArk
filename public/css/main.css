@@ -769,6 +769,51 @@ footer::before {
   text-shadow: var(--text-shadow);
 }
 
+/* Firma del desarrollador */
+.footer-developer {
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.developer-signature {
+  color: var(--muted-text);
+  font-size: var(--font-size-xs);
+  text-shadow: var(--text-shadow);
+  margin: 0;
+  font-family: var(--font-family-condensed);
+  letter-spacing: 0.5px;
+}
+
+.developer-name {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+  transition: all var(--transition-speed) ease;
+  position: relative;
+}
+
+.developer-name::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--primary-gradient);
+  transition: width var(--transition-speed) ease;
+}
+
+.developer-name:hover {
+  color: var(--primary-color-light);
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+.developer-name:hover::before {
+  width: 100%;
+}
+
 /* Utilidades mejoradas */
 .text-center { text-align: center; }
 .text-right { text-align: right; }

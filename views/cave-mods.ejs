@@ -1,140 +1,68 @@
-<h1 class="page-title animate-fade-in">Cave Mods</h1>
 
-<div class="card animate-fade-in">
-  <div class="card-header">
-    About Our Cave Mods
+<div class="cave-guides-container">
+  <div class="page-header">
+    <h1 class="page-title">Cave Guides</h1>
+    <p class="page-subtitle">Complete guides for all enhanced caves across our ARK maps</p>
   </div>
-  <div class="card-body">
-    <p>At ALPHA ARK, we've created custom mods to enhance the cave exploration experience. Our mods add new challenges, unique creatures and exclusive treasures to ARK's caves.</p>
-    <p>All mods are available exclusively on our servers and install automatically when you connect.</p>
-  </div>
+
+  <% if (caves) { %>
+    <% Object.keys(caves).forEach(function(mapName) { %>
+      <% if (caves[mapName] && caves[mapName].length > 0) { %>
+        <div class="map-section">
+          <div class="map-banner">
+            <img src="/assets/img/servers/<%= mapName %>.webp" alt="<%= mapName.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); }) %>" 
+                 onerror="this.src='/assets/img/servers/default.webp'">
+            <div class="map-banner-content">
+              <h2 class="map-title"><%= mapName.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); }) %></h2>
+              <span class="cave-count"><%= caves[mapName].length %> caves</span>
+            </div>
+          </div>
+          
+          <div class="caves-grid">
+            <% caves[mapName].forEach(function(cave) { %>
+              <div class="cave-card">
+                <div class="cave-header">
+                  <h3 class="cave-name"><%= cave.name %></h3>
+                  <span class="cave-spot"><%= cave.spot %></span>
+                </div>
+                
+                <div class="cave-details">
+                  <div class="detail-item">
+                    <span class="detail-label">Coordinates</span>
+                    <span class="detail-value"><%= cave.coordinates %></span>
+                  </div>
+                  
+                  <% if (cave.notes) { %>
+                    <div class="detail-item">
+                      <span class="detail-label">Notes</span>
+                      <span class="detail-value"><%= cave.notes %></span>
+                    </div>
+                  <% } %>
+                  
+                  <div class="detail-item">
+                    <span class="detail-label">Teleport</span>
+                    <code class="teleport-code"><%= cave.teleport %></code>
+                  </div>
+                </div>
+                
+                <% if (cave.video) { %>
+                  <div class="cave-video">
+                    <video controls preload="metadata">
+                      <source src="<%= cave.video %>" type="video/mp4">
+                      <p>Your browser doesn't support HTML5 video. <a href="<%= cave.video %>" target="_blank">Watch video</a></p>
+                    </video>
+                  </div>
+                <% } %>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+      <% } %>
+    <% }); %>
+  <% } %>
 </div>
 
-<div class="card animate-fade-in">
-  <div class="card-header">
-    Available Mods
-  </div>
-  <div class="card-body">
-    <div class="mods-grid">
-      <div class="mod-card card">
-        <img src="https://via.placeholder.com/400x200?text=Enhanced+Caves" alt="Enhanced Caves" class="mod-image">
-        <div class="card-body mod-content">
-          <h3 class="item-title">Enhanced Caves</h3>
-          <p>Enhances all game caves with new structures, traps and treasures. Increases difficulty and rewards.</p>
-          <div class="mod-actions">
-            <span><strong>ID:</strong> 2145789547</span>
-            <span><strong>Version:</strong> 2.5</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="mod-card card">
-        <img src="https://via.placeholder.com/400x200?text=Cave+Creatures" alt="Cave Creatures" class="mod-image">
-        <div class="card-body mod-content">
-          <h3 class="item-title">Cave Creatures</h3>
-          <p>Adds 15 new exclusive creatures that only appear in caves. Includes alpha variants and cave bosses.</p>
-          <div class="mod-actions">
-            <span><strong>ID:</strong> 2145789548</span>
-            <span><strong>Version:</strong> 1.8</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="mod-card card">
-        <img src="https://via.placeholder.com/400x200?text=Cave+Treasures" alt="Cave Treasures" class="mod-image">
-        <div class="card-body mod-content">
-          <h3 class="item-title">Cave Treasures</h3>
-          <p>Implements a unique treasure and artifact system in caves. Collect complete sets to unlock special abilities.</p>
-          <div class="mod-actions">
-            <span><strong>ID:</strong> 2145789549</span>
-            <span><strong>Version:</strong> 2.2</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="mod-card card">
-        <img src="https://via.placeholder.com/400x200?text=Cave+Builder" alt="Cave Builder" class="mod-image">
-        <div class="card-body mod-content">
-          <h3 class="item-title">Cave Builder</h3>
-          <p>Allows administrators to create and customize caves. Includes tools to generate mazes, traps and challenges.</p>
-          <div class="mod-actions">
-            <span><strong>ID:</strong> 2145789550</span>
-            <span><strong>Version:</strong> 3.0</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="mod-card card">
-        <img src="https://via.placeholder.com/400x200?text=Cave+Events" alt="Cave Events" class="mod-image">
-        <div class="card-body mod-content">
-          <h3 class="item-title">Cave Events</h3>
-          <p>Dynamic event system in caves. Includes creature invasions, temporary challenges and special rewards.</p>
-          <div class="mod-actions">
-            <span><strong>ID:</strong> 2145789551</span>
-            <span><strong>Version:</strong> 1.5</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="mod-card card">
-        <img src="https://via.placeholder.com/400x200?text=Advanced+Spelunking" alt="Advanced Spelunking" class="mod-image">
-        <div class="card-body mod-content">
-          <h3 class="item-title">Advanced Spelunking</h3>
-          <p>Adds specialized equipment for cave exploration: ropes, hooks, improved flashlights and more.</p>
-          <div class="mod-actions">
-            <span><strong>ID:</strong> 2145789552</span>
-            <span><strong>Version:</strong> 2.1</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card animate-fade-in">
-  <div class="card-header">
-    Cave Guides
-  </div>
-  <div class="card-body">
-    <div class="settings-section">
-      <h3 class="settings-title">The Island - Enhanced Caves</h3>
-      <div class="setting-item">
-        <div class="setting-name">South Lake Cave</div>
-        <p>Located at coordinates 80, 53. Contains enhanced poisonous spiders and a new boss: The Spider Queen. Reward: Poison Artifact.</p>
-        <div class="setting-value">Difficulty: ★★★☆☆</div>
-      </div>
-      
-      <div class="setting-item">
-        <div class="setting-name">Lower Ice Cave</div>
-        <p>Located at coordinates 29, 32. Now with ice mazes and the new boss: Ancestral Yeti. Reward: Cold Artifact.</p>
-        <div class="setting-value">Difficulty: ★★★★☆</div>
-      </div>
-      
-      <div class="setting-item">
-        <div class="setting-name">Swamp Cave</div>
-        <p>Located at coordinates 62, 37. Redesigned with gas traps and the new boss: Swamp Horror. Reward: Miasma Artifact.</p>
-        <div class="setting-value">Difficulty: ★★★★★</div>
-      </div>
-    </div>
-    
-    <div class="settings-section">
-      <h3 class="settings-title">Ragnarok - Enhanced Caves</h3>
-      <div class="setting-item">
-        <div class="setting-name">Lava Cave</div>
-        <p>Located at coordinates 43, 53. Now with obsidian bridges and the new boss: Magma Golem. Reward: Fire Artifact.</p>
-        <div class="setting-value">Difficulty: ★★★★☆</div>
-      </div>
-      
-      <div class="setting-item">
-        <div class="setting-name">Enchanted Forest Cave</div>
-        <p>Located at coordinates 72, 76. Redesigned with luminescent flora and the new boss: Forest Guardian. Reward: Life Artifact.</p>
-        <div class="setting-value">Difficulty: ★★★☆☆</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card animate-fade-in">
+<!-- <div class="card animate-fade-in">
   <div class="card-header">
     Cave Events
   </div>
@@ -161,32 +89,4 @@
       <p><strong>Next Great Expedition:</strong> Last weekend of the month</p>
     </div>
   </div>
-</div>
-
-<div class="card animate-fade-in">
-  <div class="card-header">
-    Cave Gallery
-  </div>
-  <div class="card-body">
-    <div class="mods-grid">
-      <div class="mod-card">
-        <img src="https://via.placeholder.com/300x200?text=Ice+Cave" alt="Ice Cave" class="mod-image">
-      </div>
-      <div class="mod-card">
-        <img src="https://via.placeholder.com/300x200?text=Lava+Cave" alt="Lava Cave" class="mod-image">
-      </div>
-      <div class="mod-card">
-        <img src="https://via.placeholder.com/300x200?text=Swamp+Cave" alt="Swamp Cave" class="mod-image">
-      </div>
-      <div class="mod-card">
-        <img src="https://via.placeholder.com/300x200?text=Forest+Cave" alt="Forest Cave" class="mod-image">
-      </div>
-      <div class="mod-card">
-        <img src="https://via.placeholder.com/300x200?text=Underwater+Cave" alt="Underwater Cave" class="mod-image">
-      </div>
-      <div class="mod-card">
-        <img src="https://via.placeholder.com/300x200?text=Desert+Cave" alt="Desert Cave" class="mod-image">
-      </div>
-    </div>
-  </div>
-</div>
+</div> -->

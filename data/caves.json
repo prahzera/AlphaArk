@@ -1,0 +1,102 @@
+{
+    "Aberration": [
+        {
+            "name": "Shadow Cave",
+            "coordinates": "54 - 64",
+            "teleport": "spi 116212 32673 24840 28.77 -27.76",
+            "notes": "Crouch changed to carbo entrance",
+            "spot": "Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369793623897407598/1380504986047217724/MedalTVARKSurvivalEvolved20250606123930-1749206414.mp4?ex=689684b5&is=68953335&hm=37daaf17dcf6b75b4e9c0f32d323ea503b7570b47801767fab0ad1fea2dd06bb&"
+        },
+        {
+            "name": "Lake UW cave",
+            "coordinates": "20 - 45",
+            "teleport": "spi -35761 -240020 49544 -94.24 -1.45",
+            "notes": "Chelon entrance All 6x",
+            "spot": "Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369793623897407598/1380505366672179230/MedalTVARKSurvivalEvolved20250606124922-1749207004.mp4?ex=6896850f&is=6895338f&hm=6d8ae9c2485cd322246b381ab96c86cfdc0cef6dea49be444ab8ddefa6ae8f8c&"
+        },
+        {
+            "name": "Glowtail",
+            "coordinates": "47 - 27",
+            "teleport": "spi -173098 -40603 49907 99.25 -12.01",
+            "notes": "Added choke point + removed 1 entrance after 2nd chokepoint",
+            "spot": "Beta / Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369793623897407598/1380505854356357221/MedalTVARKSurvivalEvolved20250606125221-1749207261.mp4?ex=68968584&is=68953404&hm=bb68fefbe7bbbb27b511165763149e635dfaac739c41a5f8459d392c20129254&"
+        },
+        {
+            "name": "Tube",
+            "coordinates": "51 - 30",
+            "teleport": "spi -144692 541 51085 88.37 -25.49",
+            "notes": "Massive entrance all 6x",
+            "spot": "Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369793623897407598/1380506018164903946/MedalTVARKSurvivalEvolved20250606125920-1749207585.mp4?ex=689685ab&is=6895342b&hm=9512e0865252f769af676041e49814f5d0035f8f9ee9328ce717ef8b99750729&"
+        },
+        {
+            "name": "Rad Entrance",
+            "coordinates": "77 - 32",
+            "teleport": "spi -152525 217200 11349 144.30 20.40",
+            "notes": "6x starts on the first miniplat",
+            "spot": "Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369793623897407598/1380506207705497691/MedalTVARKSurvivalEvolved20250606130151-1749207863.mp4?ex=689685d8&is=68953458&hm=79b04d387fcfcdb3bb55b23e51b31dcc879efe15a21aee40858dc00c82973940&"
+        }
+    ],
+    "TheIsland": [
+        {
+            "name": "Green Ob",
+            "coordinates": "55.8 - 74.7",
+            "teleport": "spi 198253 46683 -1750 119.58 -16.21",
+            "notes": "6x",
+            "spot": "Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369792722667569172/1380532740625006662/uncapped_MedalTVScreenRecording20250606131016.mp4?ex=68969e8e&is=68954d0e&hm=88924c643adaa15fa277420cb7c6fafb44104c5c347db8be8c3583d173f2d8ee&"
+        },
+        {
+            "name": "Herbivore Island",
+            "coordinates": "82 - 84",
+            "teleport": "spi 271313 255835 -14349 73.59 13.35",
+            "notes": "x6 Pt entrance",
+            "spot": "Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369792722667569172/1380533048898228264/uncapped_MedalTVScreenRecording20250606131237.mp4?ex=68969ed7&is=68954d57&hm=320238e5443ab392fdcef63aedef4979ff43be616b09a035f4ee4683ff687300&"
+        },
+        {
+            "name": "Redwoods",
+            "coordinates": "59.1 - 26.9",
+            "teleport": "spi -183220 73058 -6356 33.21 -8.55",
+            "notes": "x6 starting at the end of the trunk Stego entrance",
+            "spot": "Beta / Alpha",
+            "video": "https://cdn.discordapp.com/attachments/1369792722667569172/1380533600356667432/uncapped_MedalTVScreenRecording20250606131812.mp4?ex=68969f5b&is=68954ddb&hm=063a3cc274503679056bdf4c74dd2051ea2b2f11be11923d2091ff447314fd7c&"
+        },
+        {
+            "name": "Ice cave",
+            "coordinates": "29.6 - 32.0",
+            "teleport": "spi -143477 -162462 542 -119.22 -0.01",
+            "notes": "x6 Carbo entrance",
+            "spot": "Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369792722667569172/1380533779092734004/uncapped_MedalTVScreenRecording20250606132256.mp4?ex=68969f86&is=68954e06&hm=3c0f1603c41259fd21eb08c52dfb3f41b923f04a7194823a2b9275a5e8204e38&"
+        },
+        {
+            "name": "Iced Lunar Island",
+            "coordinates": "24.4 - 25.3",
+            "teleport": "spi -196850 -204376 33608 -118.72 -27.77",
+            "notes": "x6 starts on the water Stego size",
+            "spot": "Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369792722667569172/1380534232610508900/uncapped_MedalTVScreenRecording20250606132620.mp4?ex=68969ff2&is=68954e72&hm=0e24572a9a8efe44a0b1acfe23c3cc590d4c34946f31faad10d9414b35ea693a&"
+        },
+        {
+            "name": "Loot Lake",
+            "coordinates": "36.9 - 52.5",
+            "teleport": "spi 20717 -104291 32562 -138.21 -1.56",
+            "notes": "x6 starts inside the cave",
+            "spot": "Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369792722667569172/1380535625316434011/uncapped_MedalTVScreenRecording20250606133013.mp4?ex=6896a13e&is=68954fbe&hm=b3c6fb1922bcf9ece831ec31e25b988d9bbba468392964b2ee17652c5f379546&"
+        },
+        {
+            "name": "Hard UW",
+            "coordinates": "45.7 - 90.4",
+            "teleport": "spi 323962 -34370 -26026 169.50 -10.60",
+            "notes": "x6 Stego size",
+            "spot": "Alpha Spot",
+            "video": "https://cdn.discordapp.com/attachments/1369792722667569172/1380535821022527538/uncapped_MedalTVScreenRecording20250606133737.mp4?ex=6896a16c&is=68954fec&hm=ea5ed3d84b5fe2babe310d49d89bfc9a8a157210460b5e61a1495a8674a58bcf&"
+        }
+    ]
+}
